@@ -8,6 +8,8 @@ using System.Web.Http.Description;
 using IncludeDay.Data;
 using IncludeDay.Data.Entities;
 using LinqKit;
+using IncludeDay.Services.Models;
+using System.Threading.Tasks;
 
 namespace IncludeDay.Services.Controllers
 {
@@ -16,7 +18,8 @@ namespace IncludeDay.Services.Controllers
         private readonly IncludeDayContext _db = new IncludeDayContext();
 
         // GET: api/Funcionario
-        public List<Funcionario> GetFuncionario([FromUri]Funcionario filter)
+        [ResponseType(typeof(List<FuncionarioDTO>))]
+        public List<FuncionarioDTO> GetFuncionario([FromUri]Funcionario filter)
         {
             var predicate = PredicateBuilder.True<Funcionario>();
 
@@ -30,27 +33,71 @@ namespace IncludeDay.Services.Controllers
                 predicate = predicate.And(p => p.Cargo.Contains(filter.Cargo));
             }
 
-            var list = _db.Funcionarios.AsExpandable().Where(predicate);
+            var list = from func in _db.Funcionarios.Include(b => b.Departamento)
+                           .Include(b => b.Departamento.Predio)
+                           .AsExpandable()
+                           .Where(predicate)
+                       select new FuncionarioDTO
+                       {
+                           Id = func.Id,
+                           Nome = func.Nome,
+                           Cargo = func.Cargo,
+                           Departamento = new DepartamentoDTO
+                           {
+                               Id = func.Departamento.Id,
+                               Nome = func.Departamento.Nome,
+                               Descricao = func.Departamento.Descricao,
+                               Predio = new PredioDTO
+                               {
+                                   Id = func.Departamento.Predio.Id,
+                                   Nome = func.Departamento.Predio.Nome,
+                                   Descricao = func.Departamento.Descricao
+                               }
+                           }
+                       };
+
             return list.ToList();
         }
 
         // GET: api/Funcionario/5
-        [ResponseType(typeof(Funcionario))]
-        public IHttpActionResult GetFuncionario(int id)
+        [ResponseType(typeof(FuncionarioDTO))]
+        public async Task<IHttpActionResult> GetFuncionario(int id)
         {
-            Funcionario Funcionario = _db.Funcionarios.Find(id);
-            if (Funcionario == null)
+            var funcionario = await _db.Funcionarios
+                .Include(b => b.Departamento)
+                .Include(x => x.Departamento.Predio)
+                .Select(b =>
+                new FuncionarioDTO()
+                {
+                    Id = b.Id,
+                    Nome = b.Nome,
+                    Cargo = b.Cargo,
+                    Departamento = new DepartamentoDTO
+                    {
+                        Id = b.Departamento.Id,
+                        Nome = b.Departamento.Nome,
+                        Descricao = b.Departamento.Descricao,
+                        Predio = new PredioDTO
+                        {
+                            Id = b.Departamento.Predio.Id,
+                            Nome = b.Departamento.Predio.Nome,
+                            Descricao = b.Departamento.Predio.Descricao
+                        }
+                    }
+                }).SingleOrDefaultAsync(b => b.Id == id);
+
+            if (funcionario == null)
             {
                 return NotFound();
             }
 
-            return Ok(Funcionario);
+            return Ok(funcionario);
         }
 
         // PUT: api/Funcionario/5
         [ResponseType(typeof(void))]
         [HttpPut]
-        public IHttpActionResult PutFuncionario(int id, Funcionario Funcionario)
+        public async Task<IHttpActionResult> PutFuncionario(int id, Funcionario Funcionario)
         {
             if (!ModelState.IsValid)
             {
@@ -66,7 +113,7 @@ namespace IncludeDay.Services.Controllers
 
             try
             {
-                _db.SaveChanges();
+                await _db.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -86,7 +133,7 @@ namespace IncludeDay.Services.Controllers
         // POST: api/Funcionario
         [ResponseType(typeof(Funcionario))]
         [HttpPost]
-        public IHttpActionResult PostFuncionario(Funcionario Funcionario)
+        public async Task<IHttpActionResult> PostFuncionario(Funcionario Funcionario)
         {
             if (!ModelState.IsValid)
             {
@@ -94,14 +141,14 @@ namespace IncludeDay.Services.Controllers
             }
 
             _db.Funcionarios.Add(Funcionario);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = Funcionario.Id }, Funcionario);
         }
 
         // DELETE: api/Funcionario/5
         [ResponseType(typeof(Funcionario))]
-        public IHttpActionResult DeleteFuncionario(int id)
+        public async Task<IHttpActionResult> DeleteFuncionario(int id)
         {
             Funcionario Funcionario = _db.Funcionarios.Find(id);
             if (Funcionario == null)
@@ -110,7 +157,7 @@ namespace IncludeDay.Services.Controllers
             }
 
             _db.Funcionarios.Remove(Funcionario);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
 
             return Ok(Funcionario);
         }
