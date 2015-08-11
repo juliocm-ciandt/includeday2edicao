@@ -38,31 +38,31 @@ namespace IncludeDay.Services.Controllers
         [ResponseType(typeof(Funcionario))]
         public IHttpActionResult GetFuncionario(int id)
         {
-            Funcionario Funcionario = _db.Funcionarios.Find(id);
-            if (Funcionario == null)
+            Funcionario funcionario = _db.Funcionarios.Find(id);
+            if (funcionario == null)
             {
                 return NotFound();
             }
 
-            return Ok(Funcionario);
+            return Ok(funcionario);
         }
 
         // PUT: api/Funcionario/5
         [ResponseType(typeof(void))]
         [HttpPut]
-        public IHttpActionResult PutFuncionario(int id, Funcionario Funcionario)
+        public IHttpActionResult PutFuncionario(int id, Funcionario funcionario)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != Funcionario.Id)
+            if (id != funcionario.Id)
             {
                 return BadRequest();
             }
 
-            _db.Entry(Funcionario).State = EntityState.Modified;
+            _db.Entry(funcionario).State = EntityState.Modified;
 
             try
             {
@@ -86,33 +86,33 @@ namespace IncludeDay.Services.Controllers
         // POST: api/Funcionario
         [ResponseType(typeof(Funcionario))]
         [HttpPost]
-        public IHttpActionResult PostFuncionario(Funcionario Funcionario)
+        public IHttpActionResult PostFuncionario(Funcionario funcionario)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _db.Funcionarios.Add(Funcionario);
+            _db.Funcionarios.Add(funcionario);
             _db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = Funcionario.Id }, Funcionario);
+            return CreatedAtRoute("DefaultApi", new { id = funcionario.Id }, funcionario);
         }
 
         // DELETE: api/Funcionario/5
         [ResponseType(typeof(Funcionario))]
         public IHttpActionResult DeleteFuncionario(int id)
         {
-            Funcionario Funcionario = _db.Funcionarios.Find(id);
-            if (Funcionario == null)
+            Funcionario funcionario = _db.Funcionarios.Find(id);
+            if (funcionario == null)
             {
                 return NotFound();
             }
 
-            _db.Funcionarios.Remove(Funcionario);
+            _db.Funcionarios.Remove(funcionario);
             _db.SaveChanges();
 
-            return Ok(Funcionario);
+            return Ok(funcionario);
         }
 
         protected override void Dispose(bool disposing)
