@@ -6,8 +6,9 @@ namespace IncludeDay.Data
 {
     public class IncludeDayContext : DbContext
     {
-        public DbSet<Employee> Employees { get; set; }
-        public DbSet<Department> Departments { get; set; }
+        public DbSet<Funcionario> Funcionarios { get; set; }
+        public DbSet<Departamento> Departamentos { get; set; }
+        public DbSet<Predio> Predios { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -15,8 +16,8 @@ namespace IncludeDay.Data
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             // Permissões
-            modelBuilder.Entity<Employee>()
-                .HasRequired(x => x.Department);
+            modelBuilder.Entity<Departamento>()
+                .HasRequired(x => x.Predio);
         }
     }
 }

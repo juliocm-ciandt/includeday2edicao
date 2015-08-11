@@ -1,5 +1,6 @@
 namespace IncludeDay.Data.Migrations
 {
+    using IncludeDay.Data.Entities;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -14,18 +15,19 @@ namespace IncludeDay.Data.Migrations
 
         protected override void Seed(IncludeDay.Data.IncludeDayContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            var predio16 = new Predio { Id = 1, Nome = "Prédio 16", Descricao = "Prédio 16 - CPS" };
+            var predio23b = new Predio { Id = 2, Nome = "Prédio 23B", Descricao = "Prédio 23B - CPS" };
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            context.Predios.AddOrUpdate(x => x.Id,
+                predio16,
+                predio23b);
+
+            context.Departamentos.AddOrUpdate(x => x.Id,
+                new Departamento() { Id = 1, Nome = "Projeto A", Descricao = "Setor do Projeto A no Prédio 16", Predio = predio16 },
+                new Departamento() { Id = 2, Nome = "Projeto B", Descricao = "Setor do Projeto B no Prédio 16", Predio = predio16 },
+                new Departamento() { Id = 1, Nome = "RH", Descricao = "Setor de RH no Prédio 23B", Predio = predio23b },
+                new Departamento() { Id = 1, Nome = "Marketing", Descricao = "Setor de Marketing no Prédio 23B", Predio = predio23b },
+                new Departamento() { Id = 1, Nome = "Financeiro", Descricao = "Setor do Financeiro no Prédio 23B", Predio = predio23b });
         }
     }
 }
