@@ -1,0 +1,56 @@
+/* ==========================================================================
+   CSS personalizado
+   ========================================================================== */
+
+body {
+	padding-top: 30px;
+    padding-bottom: 40px;
+}
+p{
+	text-align:justify;
+}
+h1, h2, p{
+	font-family: 'Ubuntu', 'Verdana', sans-serif;
+}
+a{
+	color: #333;
+}
+.navbar-inverse .navbar-inner {
+background-image: none;	
+background-color: #fff;
+}
+.navbar-inverse .brand, .navbar-inverse .nav > li > a:hover {
+color: #111111;
+}
+.hero{
+	width:auto;
+	height: 350px;
+	background-image:url(../img/header.jpg);
+}
+.hero-unit{
+	padding: 75px;
+}
+.hero-unit h1{
+	margin-top:0;
+	padding-top:0;
+	color:#000000;
+	text-shadow:1px 1px 2px #ffffff;
+}
+.hero-unit p{
+	text-align:justify;
+	color:#000000;
+	text-shadow:1px 1px 2px #ffffff;
+}
+.copyright{
+	width:auto;
+	height:50px;
+	background:#DA203E;
+}
+.copyright footer{
+	width:200px;
+	margin:0 auto;
+}
+.copyright footer p{
+	margin-top:20px;
+}
+
