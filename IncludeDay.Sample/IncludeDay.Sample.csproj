@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="img\background.png" />
     <Content Include="img\Thumbs.db" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -73,7 +74,6 @@
     <Content Include="js\querystring-0.9.0-min.js" />
     <Content Include="local.html" />
     <Content Include="encontrar.html" />
-    <Content Include="img\header.jpg" />
     <Content Include="img\logo_ciandt.png" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\funcoes.js" />
