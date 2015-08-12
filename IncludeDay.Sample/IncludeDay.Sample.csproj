@@ -69,6 +69,7 @@
     <Content Include="cadastrar.html" />
     <Content Include="css\main.css" />
     <Content Include="index.html" />
+    <Content Include="js\exemplo_select.js" />
     <Content Include="js\querystring-0.9.0-min.js" />
     <Content Include="local.html" />
     <Content Include="encontrar.html" />
