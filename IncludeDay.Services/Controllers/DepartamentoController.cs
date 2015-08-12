@@ -19,7 +19,7 @@ namespace IncludeDay.Services.Controllers
 
         // GET: api/Departamento
         [ResponseType(typeof(List<DepartamentoDTO>))]
-        public List<DepartamentoDTO> GetDepartamento([FromUri]Funcionario filter)
+        public List<DepartamentoDTO> GetDepartamento([FromUri]Departamento filter)
         {
             var predicate = PredicateBuilder.True<Departamento>();
 
@@ -28,9 +28,9 @@ namespace IncludeDay.Services.Controllers
                 predicate = predicate.And(p => p.Nome.Contains(filter.Nome));
             }
 
-            if (filter != null && !string.IsNullOrEmpty(filter.Cargo))
+            if (filter != null && filter.Predio.Id > 0)
             {
-                predicate = predicate.And(p => p.Predio.Nome.Contains(filter.Cargo));
+                predicate = predicate.And(p => p.Predio.Id == filter.Predio.Id);
             }
 
             var list = from dept in _db.Departamentos.Include(x => x.Predio).AsExpandable().Where(predicate)
