@@ -1,12 +1,9 @@
+using System.Data.Entity.Migrations;
+using IncludeDay.Data.Entities;
+
 namespace IncludeDay.Data.Migrations
 {
-    using IncludeDay.Data.Entities;
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<IncludeDay.Data.IncludeDayContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<IncludeDayContext>
     {
         public Configuration()
         {
@@ -14,7 +11,7 @@ namespace IncludeDay.Data.Migrations
             AutomaticMigrationDataLossAllowed = true;
         }
 
-        protected override void Seed(IncludeDay.Data.IncludeDayContext context)
+        protected override void Seed(IncludeDayContext context)
         {
             var predio16 = new Predio { Id = 1, Nome = "Prédio 16", Descricao = "Prédio 16 - CPS" };
             var predio23b = new Predio { Id = 2, Nome = "Prédio 23B", Descricao = "Prédio 23B - CPS" };
