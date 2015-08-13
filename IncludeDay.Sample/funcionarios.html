@@ -10,162 +10,85 @@
     <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css' />
 </head>
 <body>
-    <!-- Início da barra de navegação -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Include Day</a>
-            </div>
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a href="minhasinformacoes.html">Minhas Informações</a></li>
-                    <li class="active"><a href="funcionarios.html">Funcionários</a></li>
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
-        </div>
-    </nav>
-    <!-- Fim da barra de navegação -->
-    <!-- Início do container para a classe 'hero-unit' -->
-    <div class="container hero">
-        <!-- Início hero unit -->
-        <div class="hero-unit">
-            <h1>#IncludeDayCI&T</h1>
-            <p>Conheça o novo sistema de cadastro, localização e avaliação de locais com acessibilidade.</p>
-        </div>
-    </div>
-    <!-- /container hero -->
 
-    <hr>
 
-    <!-- Início container-fuild -->
-    <div class="container">
-        <div class="row-fluid">
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="masthead clearfix">
+                    <div class="inner">
 
-            <h2>Encontrar estabelecimento</h2>
-            <!-- Início form -->
-            <form role="form">
+                        <ul class="nav masthead-nav">
+                            <li>
+                                <a href="index.html">Home</a>
+                            </li>
 
-                <div class="form-group">
-                    <label for="name">Descrição:</label>
-                    <input type="text" class="form-control" id="description">
+                            <li>
+                                <a href="minhasinformacoes.html">Minhas Informações</a>
+                            </li>
+
+                            <li class="active">
+                                <a href="funcionarios.html">Funcionários</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="localType">Tipo:</label>
-                    <select class="form-control" id="localType">
-                        <option value="">-- TODOS --</option>
-                        <option>Bar</option>
-                        <option>Lanchonete</option>
-                        <option>Restaurante</option>
-                        <option>Sorveteria</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="city">Cidade:</label>
-                    <select class="form-control" id="city">
-                        <option value="">-- TODOS --</option>
-                        <option>Americana</option>
-                        <option>Campinas</option>
-                        <option>Jundiaí</option>
-                        <option>São Paulo</option>
-                    </select>
-                </div>
-                <button type="button" class="btn btn-default btn-pesquisar">Encontrar &raquo;</button>
 
-            </form>
-            <!-- /form -->
+                <div class="container">
+                    <div class="row-fluid row-form">
+                        <h2>Funcionários</h2>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div>
+                                    <span class="clickable filter" data-toggle="tooltip" title="Clique para habilitar filtro" data-container="body">
+                                        <i class="glyphicon glyphicon-filter"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filtrar Funcionários..." />
+                            </div>
+                            <table class="table table-hover" id="dev-table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nome</th>
+                                        <th>Cargo</th>
+                                        <th>E-mail</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>James</td>
+                                        <td>Agente Secreto</td>
+                                        <td>007@agentesecreto.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Homem Aranha</td>
+                                        <td>Super-Herói</td>
+                                        <td>homemaranha@terra.com.br</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Minion</td>
+                                        <td>Sem definição</td>
+                                        <td>minion@universal.com</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
-            <h3>Lista de Locais</h3>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th width='20%'>Nome</th>
-                            <th width='20%'>Tipo</th>
-                            <th width='60%'>Descrição</th>
-                            <th width='0'></th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-result"></tbody>
-                </table>
+                <div class="mastfoot">
+                    <div class="inner">
+                        <p>© 2015 Include Day 2ª Edição - CI&T</p>
+                    </div>
+                </div>
             </div>
-
-            <script type="text/javascript">
-
-                $(document).ready(function () {
-
-                    var URL_TODOS_LOCAIS = "http://localhost/IncludeDay.Services/api/Locations";
-
-                    $(".btn-pesquisar").click(function () {
-
-                        var filtro = {
-                            LocationType: $("#localType").val(),
-                            Description: $("#description").val(),
-                            City: $("#city").val()
-                        };
-
-                        $.ajax({
-                            type: "GET",
-                            url: URL_TODOS_LOCAIS,
-                            data: filtro,
-                            contentType: "application/json; charset=utf-8",
-                            dataType: "json",
-                            processData: true,
-                            success: function (json) {
-
-                                $('.table-result').html('');
-
-                                var tr;
-                                for (var i = 0; i < json.length; i++) {
-                                    tr = $('<tr/>');
-                                    tr.append("<td>" + json[i].Name + "</td>");
-                                    tr.append("<td>" + json[i].LocationType + "</td>");
-                                    tr.append("<td>" + json[i].Description + "</td>");
-                                    tr.append("<td><a class='btn btn-default' href='local.html?id=" + json[i].Id + "'>Detalhes</a></td>");
-                                    $('.table-result').append(tr);
-                                }
-
-                            },
-                            error: function (xhr) {
-                                alert(xhr.responseText);
-                            }
-                        });
-
-                    });
-
-                    $.getJSON(
-                        URL_TODOS_LOCAIS,
-                        function (json) {
-                            var tr;
-                            for (var i = 0; i < json.length; i++) {
-                                tr = $('<tr/>');
-                                tr.append("<td>" + json[i].Name + "</td>");
-                                tr.append("<td>" + json[i].LocationType + "</td>");
-                                tr.append("<td>" + json[i].Description + "</td>");
-                                tr.append("<td><a class='btn btn-default' href='local.html?id=" + json[i].Id + "'>Detalhes</a></td>");
-                                $('.table-result').append(tr);
-                            }
-                        });
-
-                });
-
-            </script>
-
         </div>
-    </div>
-    <!-- /container-fluid -->
-    <hr>
-    <!-- Início container-fuild copyright -->
-    <div class="container-fluid copyright">
-        <footer>
-            <p><a href="https://twitter.com/search?f=realtime&q=IncludeDayCI%26T&src=typd" title="#">#IncludeDayCI&T</a></p>
-        </footer>
     </div>
 
     <!-- Bibliotecas de Script -->

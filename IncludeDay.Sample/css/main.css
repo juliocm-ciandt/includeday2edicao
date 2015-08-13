@@ -29,9 +29,9 @@ body {
     -o-background-size: cover;
     background-size: cover;
     height: 100%;
-    background-color: #060;
+    background-color: white;
     color: black;
-    /*text-align: center;*/
+    text-align: center;
     text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
@@ -164,4 +164,36 @@ body {
 
 h1, p.lead {
     color: black;
+}
+
+.row-form {
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+}
+
+.row {
+    margin-top: 40px;
+    padding: 0 10px;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.panel-heading {
+    height: 30px;
+}
+
+.panel-heading div {
+    margin-top: -6px;
+    font-size: 16px;
+}
+
+.panel-heading div span {
+    margin-left: 5px;
+}
+
+.panel-body {
+    display: none;
 }

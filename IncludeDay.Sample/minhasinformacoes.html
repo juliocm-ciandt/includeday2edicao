@@ -11,101 +11,88 @@
 </head>
 <body>
 
-    <!-- Início da barra de navegação -->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Include Day</a>
+    <div class="site-wrapper">
+        <div class="site-wrapper-inner">
+            <div class="cover-container">
+                <div class="masthead clearfix">
+                    <div class="inner">
+
+                        <ul class="nav masthead-nav">
+                            <li>
+                                <a href="index.html">Home</a>
+                            </li>
+
+                            <li class="active">
+                                <a href="minhasinformacoes.html">Minhas Informações</a>
+                            </li>
+
+                            <li>
+                                <a href="funcionarios.html">Funcionários</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row-fluid row-form">
+                        <h2>Minhas Informações</h2>
+
+                        <!-- Início form -->
+                        <form role="form">
+                            <input type="hidden" id="idFuncionario" value="4" />
+
+                            <div class="form-group">
+                                <label for="nome">Nome:</label>
+                                <input type="text" class="form-control" id="nome">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cargo">Cargo:</label>
+                                <input type="text" class="form-control" id="cargo">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">E-mail:</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="predio">Prédio:</label>
+                                <select class="form-control" id="predio"></select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="departamento">Departamento:</label>
+                                <select class="form-control" id="departamento"></select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="description">Descrição:</label>
+                                <textarea class="form-control" rows="5" id="description"></textarea>
+                            </div>
+
+                            <button type="button" class="btn btn-default btn-cadastrar">Cadastrar &raquo;</button>
+                        </form>
+                        <!-- /form -->
+
+                    </div>
+                </div>
+
+                <div class="mastfoot">
+                    <div class="inner">
+                        <p>© 2015 Include Day 2ª Edição - CI&T</p>
+                    </div>
+                </div>
             </div>
-            <div id="navbar" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="minhasinformacoes.html">Minhas Informações</a></li>
-                    <li><a href="funcionarios.html">Funcionários</a></li>
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
-        </div>
-    </nav>
-    <!-- Fim da barra de navegação -->
-    <!-- Início do container para a classe 'hero-unit' -->
-    <div class="container hero">
-        <!-- Início hero unit -->
-        <div class="hero-unit">
-            <h1>#IncludeDayCI&T</h1>
-            <p>Conheça o novo sistema de cadastro, localização e avaliação de locais com acessibilidade.</p>
         </div>
     </div>
-    <!-- /container hero -->
-
-    <hr>
-    <!-- Início container-fuild -->
-    <div class="container">
-        <div class="row-fluid">
-            <h2>Minhas Informações</h2>
-
-            <!-- Início form -->
-            <form role="form">
-                <input type="hidden" id="idFuncionario" value="4" />
-
-                <div class="form-group">
-                    <label for="nome">Nome:</label>
-                    <input type="text" class="form-control" id="nome">
-                </div>
-
-                <div class="form-group">
-                    <label for="cargo">Cargo:</label>
-                    <input type="text" class="form-control" id="cargo">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">E-mail:</label>
-                    <input type="email" class="form-control" id="email">
-                </div>
-
-                <div class="form-group">
-                    <label for="predio">Prédio:</label>
-                    <select class="form-control" id="predio"></select>
-                </div>
-
-                <div class="form-group">
-                    <label for="departamento">Departamento:</label>
-                    <select class="form-control" id="departamento"></select>
-                </div>
-
-                <div class="form-group">
-                    <label for="description">Descrição:</label>
-                    <textarea class="form-control" rows="5" id="description"></textarea>
-                </div>
-
-                <button type="button" class="btn btn-default btn-cadastrar">Cadastrar &raquo;</button>
-            </form>
-            <!-- /form -->
-
-        </div>
-    </div>
-    <!-- /container-fluid -->
-    <hr>
-    <!-- Início container-fuild copyright -->
-    <div class="container-fluid copyright">
-        <footer>
-            <p><a href="https://twitter.com/search?f=realtime&q=IncludeDayCI%26T&src=typd" title="#">#IncludeDayCI&T</a></p>
-        </footer>
-    </div>
-    <!-- /container-fluid copyright -->
-
+    
     <!-- Bibliotecas de Script -->
     <script src="js/libs/jquery-2.1.3.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="js/libs/querystring-0.9.0-min.js"></script>
     <script src="js/minhasinformacoes.js"></script>
     <!-- Fim das Bibliotecas de Script -->
-
     <!-- Scripts da página -->
     <script>
         jQuery(document).ready(function () {
