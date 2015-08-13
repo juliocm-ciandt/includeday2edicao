@@ -12,8 +12,9 @@ namespace IncludeDay.Data.Entities
         [Required]
         public string Nome { get; set; }
 
-        [Required]
         public string Cargo { get; set; }
+
+        public string Email { get; set; }
 
         public virtual Departamento Departamento { get; set; }
     }

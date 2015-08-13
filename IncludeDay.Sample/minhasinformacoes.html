@@ -3,24 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Include Day CI&T 2015</title>
-
-    <script src="js/jquery-2.1.3.js"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" />
-
-    <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" />
-
     <link rel="stylesheet" href="css/main.css" />
-
     <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css' />
-
 </head>
 <body>
 
@@ -38,15 +25,14 @@
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="cadastrar.html">Cadastrar</a></li>
-                    <li><a href="encontrar.html">Encontrar</a></li>
+                    <li class="active"><a href="minhasinformacoes.html">Minhas Informações</a></li>
+                    <li><a href="funcionarios.html">Funcionários</a></li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
         </div>
     </nav>
     <!-- Fim da barra de navegação -->
-
     <!-- Início do container para a classe 'hero-unit' -->
     <div class="container hero">
         <!-- Início hero unit -->
@@ -61,14 +47,35 @@
     <!-- Início container-fuild -->
     <div class="container">
         <div class="row-fluid">
-            <h2>Cadastro de estabelecimento</h2>
+            <h2>Minhas Informações</h2>
 
             <!-- Início form -->
             <form role="form">
+                <input type="hidden" id="idFuncionario" value="4" />
 
                 <div class="form-group">
-                    <label for="name">Nome:</label>
-                    <input type="text" class="form-control" id="name">
+                    <label for="nome">Nome:</label>
+                    <input type="text" class="form-control" id="nome">
+                </div>
+
+                <div class="form-group">
+                    <label for="cargo">Cargo:</label>
+                    <input type="text" class="form-control" id="cargo">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="predio">Prédio:</label>
+                    <select class="form-control" id="predio"></select>
+                </div>
+
+                <div class="form-group">
+                    <label for="departamento">Departamento:</label>
+                    <select class="form-control" id="departamento"></select>
                 </div>
 
                 <div class="form-group">
@@ -77,44 +84,6 @@
                 </div>
 
                 <button type="button" class="btn btn-default btn-cadastrar">Cadastrar &raquo;</button>
-
-                <script type="text/javascript">
-
-                    $(function () {
-
-                        $(".btn-cadastrar").click(function () {
-
-                            var URL_CADASTRO = "http://localhost:61719/api/employees";
-
-                            var localizacao = {
-                                Name: $("#name").val(),
-                                Position: $("#description").val(),
-                                Id: 1,
-                            };
-
-                            $.ajax({
-                                type: "POST",
-                                url: URL_CADASTRO,
-                                data: JSON.stringify(localizacao),
-                                contentType: "application/json; charset=utf-8",
-                                dataType: "json",
-                                processData: true,
-                                success: function (data) {
-
-                                    /// mensagem do sucesso.
-
-                                },
-                                error: function (xhr) {
-                                    alert(xhr.responseText);
-                                }
-                            });
-
-                        });
-
-                    });
-
-                </script>
-
             </form>
             <!-- /form -->
 
@@ -129,6 +98,21 @@
         </footer>
     </div>
     <!-- /container-fluid copyright -->
+
+    <!-- Bibliotecas de Script -->
+    <script src="js/libs/jquery-2.1.3.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="js/libs/querystring-0.9.0-min.js"></script>
+    <script src="js/minhasinformacoes.js"></script>
+    <!-- Fim das Bibliotecas de Script -->
+
+    <!-- Scripts da página -->
+    <script>
+        jQuery(document).ready(function () {
+            MinhasInformacoes.inicializar();
+        });
+    </script>
+
 </body>
 
 </html>

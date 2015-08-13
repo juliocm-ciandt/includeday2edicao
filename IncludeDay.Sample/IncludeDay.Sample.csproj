@@ -67,17 +67,18 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="cadastrar.html" />
+    <Content Include="js\funcionarios.js" />
+    <Content Include="js\minhasinformacoes.js" />
+    <Content Include="minhasinformacoes.html" />
     <Content Include="css\main.css" />
     <Content Include="index.html" />
-    <Content Include="js\exemplo_select.js" />
-    <Content Include="js\querystring-0.9.0-min.js" />
+    <Content Include="js\libs\querystring-0.9.0-min.js" />
     <Content Include="local.html" />
-    <Content Include="encontrar.html" />
+    <Content Include="funcionarios.html" />
     <Content Include="img\logo_ciandt.png" />
-    <Content Include="js\bootstrap.js" />
-    <Content Include="js\funcoes.js" />
-    <Content Include="js\jquery-2.1.3.js" />
+    <Content Include="js\libs\bootstrap.js" />
+    <Content Include="js\libs\funcoes.js" />
+    <Content Include="js\libs\jquery-2.1.3.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

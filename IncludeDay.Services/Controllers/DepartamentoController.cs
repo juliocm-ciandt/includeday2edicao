@@ -33,13 +33,16 @@ namespace IncludeDay.Services.Controllers
                 predicate = predicate.And(p => p.Predio.Id == filter.Predio.Id);
             }
 
-            var list = from dept in _db.Departamentos.Include(x => x.Predio).AsExpandable().Where(predicate)
+            var list = from dept in _db.Departamentos
+                           .Include(x => x.Predio)
+                           .AsExpandable()
+                           .Where(predicate)
                        select new DepartamentoDTO
                        {
                            Id = dept.Id,
                            Nome = dept.Nome,
                            Descricao = dept.Descricao,
-                           Predio = new PredioDTO
+                           Predio = dept.Predio == null ? null : new PredioDTO
                            {
                                Id = dept.Predio.Id,
                                Nome = dept.Predio.Nome,
@@ -54,13 +57,15 @@ namespace IncludeDay.Services.Controllers
         [ResponseType(typeof(DepartamentoDTO))]
         public async Task<IHttpActionResult> GetDepartamento(int id)
         {
-            var department = await _db.Departamentos.Include(b => b.Predio).Select(b =>
+            var department = await _db.Departamentos
+                .Include(b => b.Predio)
+                .Select(b =>
                 new DepartamentoDTO()
                 {
                     Id = b.Id,
                     Nome = b.Nome,
                     Descricao = b.Descricao,
-                    Predio = new PredioDTO
+                    Predio = b.Predio == null ? null : new PredioDTO
                     {
                         Id = b.Predio.Id,
                         Descricao = b.Predio.Descricao,

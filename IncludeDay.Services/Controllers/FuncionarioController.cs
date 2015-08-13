@@ -33,7 +33,13 @@ namespace IncludeDay.Services.Controllers
                 predicate = predicate.And(p => p.Cargo.Contains(filter.Cargo));
             }
 
-            var list = from func in _db.Funcionarios.Include(b => b.Departamento)
+            if (filter != null && !string.IsNullOrEmpty(filter.Email))
+            {
+                predicate = predicate.And(p => p.Email.Contains(filter.Email));
+            }
+
+            var list = from func in _db.Funcionarios
+                           .Include(b => b.Departamento)
                            .Include(b => b.Departamento.Predio)
                            .AsExpandable()
                            .Where(predicate)
@@ -42,12 +48,13 @@ namespace IncludeDay.Services.Controllers
                            Id = func.Id,
                            Nome = func.Nome,
                            Cargo = func.Cargo,
-                           Departamento = new DepartamentoDTO
+                           Email = func.Email,
+                           Departamento = func.Departamento == null ? null : new DepartamentoDTO
                            {
                                Id = func.Departamento.Id,
                                Nome = func.Departamento.Nome,
                                Descricao = func.Departamento.Descricao,
-                               Predio = new PredioDTO
+                               Predio = func.Departamento.Predio == null ? null : new PredioDTO
                                {
                                    Id = func.Departamento.Predio.Id,
                                    Nome = func.Departamento.Predio.Nome,
@@ -55,6 +62,9 @@ namespace IncludeDay.Services.Controllers
                                }
                            }
                        };
+
+            //Proposital para causar um lentidão no retorno do serviço para os testers
+            System.Threading.Thread.Sleep(10000);
 
             return list.ToList();
         }
@@ -72,12 +82,13 @@ namespace IncludeDay.Services.Controllers
                     Id = b.Id,
                     Nome = b.Nome,
                     Cargo = b.Cargo,
-                    Departamento = new DepartamentoDTO
+                    Email = b.Email,
+                    Departamento = b.Departamento == null ? null : new DepartamentoDTO
                     {
                         Id = b.Departamento.Id,
                         Nome = b.Departamento.Nome,
                         Descricao = b.Departamento.Descricao,
-                        Predio = new PredioDTO
+                        Predio = b.Departamento.Predio == null ? null : new PredioDTO
                         {
                             Id = b.Departamento.Predio.Id,
                             Nome = b.Departamento.Predio.Nome,
@@ -135,12 +146,28 @@ namespace IncludeDay.Services.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> PostFuncionario(Funcionario Funcionario)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest(ModelState);
+            //}
 
-            _db.Funcionarios.Add(Funcionario);
+            if(FuncionarioExists(Funcionario.Id))
+            {
+                var departamento = _db.Departamentos.Find(Funcionario.Departamento.Id);
+
+                if(departamento != null)
+                {
+                    Funcionario.Departamento = departamento;
+                }
+
+                _db.Funcionarios.Attach(Funcionario);
+                _db.Entry(Funcionario).State = EntityState.Modified;
+            }
+            else
+            {
+                _db.Funcionarios.Add(Funcionario);
+            }
+            
             await _db.SaveChangesAsync();
 
             return CreatedAtRoute("DefaultApi", new { id = Funcionario.Id }, Funcionario);

@@ -36,7 +36,8 @@ namespace IncludeDay.Data.Migrations
             context.Funcionarios.AddOrUpdate(x => x.Id,
                 new Funcionario() { Id = 1, Nome = "José da Silva", Cargo = "Gerente de RH", Departamento = departamento3 },
                 new Funcionario() { Id = 2, Nome = "Maria Fernanda da Silva", Cargo = "Gerente de Marketing", Departamento = departamento4 },
-                new Funcionario() { Id = 3, Nome = "Juliana Aparecida Fernandes", Cargo = "Gerente Financeiro", Departamento = departamento5 });
+                new Funcionario() { Id = 3, Nome = "Juliana Aparecida Fernandes", Cargo = "Gerente Financeiro", Departamento = departamento5 },
+                new Funcionario() { Id = 4, Nome = "Usuário Participante do IncludeDay", Cargo = null, Departamento = null });
 
             base.Seed(context);
         }
