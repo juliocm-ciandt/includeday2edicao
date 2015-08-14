@@ -48,7 +48,7 @@ namespace IncludeDay.Services.Controllers
                            Id = func.Id,
                            Nome = func.Nome,
                            Cargo = func.Cargo,
-                           Email = func.Email,
+                           Email = func.Email ?? string.Empty,
                            Departamento = func.Departamento == null ? null : new DepartamentoDTO
                            {
                                Id = func.Departamento.Id,

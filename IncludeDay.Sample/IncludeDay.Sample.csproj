@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="js\funcionarios.js" />
+    <Content Include="js\index.js" />
     <Content Include="js\minhasinformacoes.js" />
     <Content Include="minhasinformacoes.html" />
     <Content Include="css\main.css" />
