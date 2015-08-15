@@ -40,38 +40,63 @@
                         <!-- Início form -->
                         <form role="form">
                             <input type="hidden" id="idFuncionario" value="4" />
-
-                            <div class="form-group">
+                            <div class="form-group col-lg-4 col-md-4">
                                 <label for="nome">Nome:</label>
                                 <input type="text" class="form-control" id="nome">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-lg-4 col-md-4">
                                 <label for="cargo">Cargo:</label>
                                 <input type="text" class="form-control" id="cargo">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-lg-4 col-md-4">
                                 <label for="email">E-mail:</label>
                                 <input type="email" class="form-control" id="email">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-lg-4 col-md-4">
+                                <label for="idade">Idade</label>
+                                <input type="number" class="form-control" id="idade">
+                            </div>
+
+                            <div class="form-group col-lg-4 col-md-4">
                                 <label for="predio">Prédio:</label>
                                 <select class="form-control" id="predio"></select>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-lg-4 col-md-4">
                                 <label for="departamento">Departamento:</label>
                                 <select class="form-control" id="departamento"></select>
                             </div>
 
-                            <div class="form-group">
-                                <label for="description">Descrição:</label>
-                                <textarea class="form-control" rows="5" id="description"></textarea>
+                            <div class="form-group col-lg-12 col-md-12">
+                                <label>Projeto:</label>
+                                <div id="map-image">
+                                    <label class="map-area map-area-a center-block">
+                                        <input name="area" type="radio" alt="Area 01" />
+                                        <span class="text-center">Area 01</span>
+                                    </label>
+                                    <label class="map-area map-area-b center-block">
+                                        <input name="area" type="radio" alt="Area 01" />
+                                        <span class="text-center">Area 01</span>
+                                    </label>
+                                    <label class="map-area map-area-c center-block">
+                                        <input name="area" type="radio" alt="Area 01" />
+                                        <span class="text-center">Area 01</span>
+                                    </label>
+                                    <label class="map-area map-area-d center-block">
+                                        <input name="area" type="radio" alt="Area 01" />
+                                        <span class="text-center">Area 01</span>
+                                    </label>
+                                    <label class="map-area map-area-e center-block">
+                                        <input name="area" type="radio" alt="Area 01" />
+                                        <span class="text-center">Area 01</span>
+                                    </label>
+                                </div>
                             </div>
 
-                            <button type="button" class="btn btn-default btn-cadastrar">Cadastrar &raquo;</button>
+                            <button type="button" class="btn btn-lg btn-info btn-cadastrar">Cadastrar &raquo;</button>
                         </form>
                         <!-- /form -->
 
@@ -86,11 +111,12 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Bibliotecas de Script -->
     <script src="js/libs/jquery-2.1.3.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="js/libs/querystring-0.9.0-min.js"></script>
+    <script src="js/libs/AppSettings.js"></script>
     <script src="js/minhasinformacoes.js"></script>
     <!-- Fim das Bibliotecas de Script -->
     <!-- Scripts da página -->

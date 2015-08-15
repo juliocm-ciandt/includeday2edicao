@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IncludeDay.Data.Entities
 {
-    [Serializable]
     public class Departamento
     {
         [Key]

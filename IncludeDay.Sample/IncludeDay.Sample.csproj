@@ -14,7 +14,7 @@
     <RootNamespace>IncludeDay.Sample</RootNamespace>
     <AssemblyName>IncludeDay.Sample</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -67,6 +67,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="js\libs\AppSettings.js" />
     <Content Include="js\funcionarios.js" />
     <Content Include="js\index.js" />
     <Content Include="js\minhasinformacoes.js" />
@@ -74,7 +75,6 @@
     <Content Include="css\main.css" />
     <Content Include="index.html" />
     <Content Include="js\libs\querystring-0.9.0-min.js" />
-    <Content Include="local.html" />
     <Content Include="funcionarios.html" />
     <Content Include="img\logo_ciandt.png" />
     <Content Include="js\libs\bootstrap.js" />
@@ -96,11 +96,11 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>16297</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:61720/</IISUrl>
+          <IISUrl>http://includeday/IncludeDay.Sample</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

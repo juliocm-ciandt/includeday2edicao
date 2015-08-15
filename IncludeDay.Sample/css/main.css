@@ -32,7 +32,13 @@ body {
     background-color: white;
     color: black;
     text-align: center;
-    text-shadow: 0 1px 3px rgba(0,0,0,.5);
+    //text-shadow: 0 1px 3px rgba(0,0,0,.5);
+}
+
+.container 
+{
+    position: relative;
+    top: 100px;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -41,8 +47,8 @@ body {
     width: 100%;
     height: 100%; /* For at least Firefox */
     min-height: 100%;
-    -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-    box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+    /*-webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+    box-shadow: inset 0 0 100px rgba(0,0,0,.5);*/
 }
 
 .site-wrapper-inner {
@@ -64,6 +70,12 @@ body {
 /*
  * Header
  */
+.masthead {
+    background-color: rgba(86, 196, 207, 0.6);
+    /*position: relative !important;*/
+    z-index: 1000;
+}
+
 .masthead-brand {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -82,8 +94,8 @@ body {
         padding-left: 0;
         font-size: 16px;
         font-weight: bold;
-        color: #fff; /* IE8 proofing */
-        color: rgba(255,255,255,.95);
+        color: #000; /* IE8 proofing */
+        color: rgba(0,0,0, 1);
         border-bottom: 2px solid transparent;
     }
 
@@ -97,7 +109,7 @@ body {
 .masthead-nav > .active > a,
 .masthead-nav > .active > a:hover,
 .masthead-nav > .active > a:focus {
-    color: #fff;
+    color: #DA203E;
     border-bottom-color: #fff;
 }
 
@@ -170,6 +182,7 @@ h1, p.lead {
     text-align: left;
     background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
+    min-height: 400px;
 }
 
 .row {
@@ -185,15 +198,84 @@ h1, p.lead {
     height: 30px;
 }
 
-.panel-heading div {
-    margin-top: -6px;
-    font-size: 16px;
-}
+    .panel-heading div {
+        margin-top: -6px;
+        font-size: 16px;
+    }
 
-.panel-heading div span {
-    margin-left: 5px;
-}
+        .panel-heading div span {
+            margin-left: 5px;
+        }
 
 .panel-body {
     display: none;
+}
+
+/*
+    Minhas Informações
+*/
+#map-image {
+    position: relative;
+    height: 532px;
+    background: #fff url(https://citweb.cit.com.br/citmap/maps/bra-sp-cps-16.jpg) no-repeat center;
+    border: #000 1px solid;
+}
+
+.map-area {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    opacity: 0.5;
+}
+
+    .map-area > span {
+        background: #aaa;
+        display: block;
+        width: 100%;
+        height: 100%;
+        color: #DA203E;
+        vertical-align: bottom;
+    }
+
+    .map-area > input {
+        display: none;
+    }
+
+        .map-area > input:checked + span {
+            background: green;
+        }
+
+.map-area-a {
+    top: 10px;
+    left: 0;
+    width: 285px;
+    height: 165px;
+}
+
+.map-area-b {
+    top: 10px;
+    left: 729px;
+    width: 340px;
+    height: 165px;
+}
+
+.map-area-c {
+    top: 200px;
+    left: 0;
+    width: 355px;
+    height: 150px;
+}
+
+.map-area-d {
+    top: 380px;
+    left: 0;
+    width: 355px;
+    height: 140px;
+}
+
+.map-area-e {
+    top: 380px;
+    left: 418px;
+    width: 651px;
+    height: 140px;
 }

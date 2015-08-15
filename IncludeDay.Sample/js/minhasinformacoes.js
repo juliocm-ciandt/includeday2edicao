@@ -1,6 +1,4 @@
 ﻿var MinhasInformacoes = function () {
-    //var URL_SERVICO = "http://localhost/IncludeDay.Services/api";
-    var URL_SERVICO = "http://localhost:61719/api";
 
     //Cuida do carregamento dos dados do funcionário da tela
     var handleCarregarDados = function () {
@@ -19,6 +17,7 @@
                 $("#nome").val(data.Nome);
                 $("#cargo").val(data.Cargo);
                 $("#email").val(data.Email);
+                $("#idade").val(data.Idade);
                 $("#predio").val(data.Departamento.Predio.Id);
                 $("#predio").trigger("change");
                 $("#departamento").val(data.Departamento.Id);
@@ -40,6 +39,7 @@
                 Nome: $("#nome").val(),
                 Cargo: $("#cargo").val(),
                 Email: $("#email").val(),
+                Idade: $("#idade").val(),
                 Departamento: {
                     Id: $("#departamento").val()
                 }

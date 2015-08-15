@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IncludeDay.Data.Entities
 {
-    [Serializable]
     public class Funcionario
     {
         [Key]
@@ -15,6 +14,8 @@ namespace IncludeDay.Data.Entities
         public string Cargo { get; set; }
 
         public string Email { get; set; }
+
+        public int Idade { get; set; }
 
         public virtual Departamento Departamento { get; set; }
     }

@@ -1,6 +1,4 @@
 ﻿var Index = function () {
-    //var URL_SERVICO = "http://localhost/IncludeDay.Services/api";
-    var URL_SERVICO = "http://localhost:61719/api";
 
     //Cuida do carregamento dos dados do funcionário da tela
     var handleCarregarUsuario = function () {

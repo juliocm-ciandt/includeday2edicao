@@ -6,7 +6,6 @@ namespace IncludeDay.Data.Entities
     /// <summary>
     /// Prédios dos locais
     /// </summary>
-    [Serializable]
     public class Predio
     {
         [Key]
