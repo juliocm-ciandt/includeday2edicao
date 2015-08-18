@@ -13,15 +13,15 @@ using System.Threading.Tasks;
 
 namespace IncludeDay.Services.Controllers
 {
-    public class DepartamentoController : ApiController
+    public class ProjetoController : ApiController
     {
         private IncludeDayContext _db = new IncludeDayContext();
 
-        // GET: api/Departamento
-        [ResponseType(typeof(List<DepartamentoDTO>))]
-        public List<DepartamentoDTO> GetDepartamento([FromUri]Departamento filter)
+        // GET: api/Projeto
+        [ResponseType(typeof(List<ProjetoDTO>))]
+        public List<ProjetoDTO> GetProjeto([FromUri]Projeto filter)
         {
-            var predicate = PredicateBuilder.True<Departamento>();
+            var predicate = PredicateBuilder.True<Projeto>();
 
             if (filter != null && !string.IsNullOrEmpty(filter.Nome))
             {
@@ -33,34 +33,34 @@ namespace IncludeDay.Services.Controllers
                 predicate = predicate.And(p => p.Predio.Id == filter.Predio.Id);
             }
 
-            var list = from dept in _db.Departamentos
+            var list = from proj in _db.Projetos
                            .Include(x => x.Predio)
                            .AsExpandable()
                            .Where(predicate)
-                       select new DepartamentoDTO
+                       select new ProjetoDTO
                        {
-                           Id = dept.Id,
-                           Nome = dept.Nome,
-                           Descricao = dept.Descricao,
-                           Predio = dept.Predio == null ? null : new PredioDTO
+                           Id = proj.Id,
+                           Nome = proj.Nome,
+                           Descricao = proj.Descricao,
+                           Predio = proj.Predio == null ? null : new PredioDTO
                            {
-                               Id = dept.Predio.Id,
-                               Nome = dept.Predio.Nome,
-                               Descricao = dept.Predio.Descricao
+                               Id = proj.Predio.Id,
+                               Nome = proj.Predio.Nome,
+                               Descricao = proj.Predio.Descricao
                            }
                        };
 
             return list.ToList();
         }
 
-        // GET: api/Departamento/5
-        [ResponseType(typeof(DepartamentoDTO))]
-        public async Task<IHttpActionResult> GetDepartamento(int id)
+        // GET: api/Projeto/5
+        [ResponseType(typeof(ProjetoDTO))]
+        public async Task<IHttpActionResult> GetProjeto(int id)
         {
-            var department = await _db.Departamentos
+            var projeto = await _db.Projetos
                 .Include(b => b.Predio)
                 .Select(b =>
-                new DepartamentoDTO()
+                new ProjetoDTO()
                 {
                     Id = b.Id,
                     Nome = b.Nome,
@@ -73,30 +73,30 @@ namespace IncludeDay.Services.Controllers
                     }
                 }).SingleOrDefaultAsync(b => b.Id == id);
 
-            if (department == null)
+            if (projeto == null)
             {
                 return NotFound();
             }
 
-            return Ok(department);
+            return Ok(projeto);
         }
 
-        // PUT: api/Departamento/5
+        // PUT: api/Projeto/5
         [ResponseType(typeof(void))]
         [HttpPut]
-        public async Task<IHttpActionResult> PutDepartamento(int id, Departamento departamento)
+        public async Task<IHttpActionResult> PutProjeto(int id, Projeto projeto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != departamento.Id)
+            if (id != projeto.Id)
             {
                 return BadRequest();
             }
 
-            _db.Entry(departamento).State = EntityState.Modified;
+            _db.Entry(projeto).State = EntityState.Modified;
 
             try
             {
@@ -104,7 +104,7 @@ namespace IncludeDay.Services.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DepartmentExists(id))
+                if (!ProjetoExiste(id))
                 {
                     return NotFound();
                 }
@@ -118,33 +118,33 @@ namespace IncludeDay.Services.Controllers
         }
 
         // POST: api/Departamento
-        [ResponseType(typeof(Departamento))]
+        [ResponseType(typeof(Projeto))]
         [HttpPost]
-        public async Task<IHttpActionResult> PostDepartamento(Departamento departamento)
+        public async Task<IHttpActionResult> PostProjeto(Projeto projeto)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _db.Departamentos.Add(departamento);
+            _db.Projetos.Add(projeto);
             await _db.SaveChangesAsync();
 
-            return CreatedAtRoute("DefaultApi", new { id = departamento.Id }, departamento);
+            return CreatedAtRoute("DefaultApi", new { id = projeto.Id }, projeto);
         }
 
         // DELETE: api/Departamento/5
-        [ResponseType(typeof(Departamento))]
+        [ResponseType(typeof(Projeto))]
         [HttpDelete]
-        public async Task<IHttpActionResult> DeleteDepartamento(int id)
+        public async Task<IHttpActionResult> DeleteProjeto(int id)
         {
-            Departamento department = _db.Departamentos.Find(id);
+            Projeto department = _db.Projetos.Find(id);
             if (department == null)
             {
                 return NotFound();
             }
 
-            _db.Departamentos.Remove(department);
+            _db.Projetos.Remove(department);
             await _db.SaveChangesAsync();
 
             return Ok(department);
@@ -159,9 +159,9 @@ namespace IncludeDay.Services.Controllers
             base.Dispose(disposing);
         }
 
-        private bool DepartmentExists(int id)
+        private bool ProjetoExiste(int id)
         {
-            return _db.Departamentos.Count(e => e.Id == id) > 0;
+            return _db.Projetos.Count(e => e.Id == id) > 0;
         }
     }
 }

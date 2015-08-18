@@ -13,7 +13,7 @@ namespace IncludeDay.Data
         }
 
         public DbSet<Funcionario> Funcionarios { get; set; }
-        public DbSet<Departamento> Departamentos { get; set; }
+        public DbSet<Projeto> Projetos { get; set; }
         public DbSet<Predio> Predios { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -21,7 +21,7 @@ namespace IncludeDay.Data
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
             // Permissões
-            modelBuilder.Entity<Departamento>()
+            modelBuilder.Entity<Projeto>()
                 .HasRequired(x => x.Predio);
         }
     }

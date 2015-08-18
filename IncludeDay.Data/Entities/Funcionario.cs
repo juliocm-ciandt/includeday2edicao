@@ -17,7 +17,7 @@ namespace IncludeDay.Data.Entities
 
         public int Idade { get; set; }
 
-        public virtual Departamento Departamento { get; set; }
+        public virtual Projeto Projeto { get; set; }
     }
 }
 

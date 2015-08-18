@@ -49,7 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Predio.cs" />
-    <Compile Include="Entities\Departamento.cs" />
+    <Compile Include="Entities\Projeto.cs" />
     <Compile Include="Entities\Funcionario.cs" />
     <Compile Include="IncludeDayContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />

@@ -18,9 +18,9 @@
                 $("#cargo").val(data.Cargo);
                 $("#email").val(data.Email);
                 $("#idade").val(data.Idade);
-                $("#predio").val(data.Departamento.Predio.Id);
+                $("#predio").val(data.Projeto.Predio.Id);
                 $("#predio").trigger("change");
-                $("#departamento").val(data.Departamento.Id);
+                $("#projeto").val(data.Projeto.Id);
 
             },
             error: function (xhr) {
@@ -40,8 +40,8 @@
                 Cargo: $("#cargo").val(),
                 Email: $("#email").val(),
                 Idade: $("#idade").val(),
-                Departamento: {
-                    Id: $("#departamento").val()
+                Projeto: {
+                    Id: $("#projeto").val()
                 }
             };
 
@@ -97,7 +97,7 @@
 
             //TODO: Implementar o método
             if (predioId > 0) {
-                $select = $('#departamento');
+                $select = $('#projeto');
 
                 var dadosPredio = {
                     Predio: {
@@ -108,7 +108,7 @@
                 $.ajax({
                     async: false,
                     type: "GET",
-                    url: URL_SERVICO + '/Departamento',
+                    url: URL_SERVICO + '/Projeto',
                     data: dadosPredio,
                     dataType: "JSON",
                     success: function (data) {

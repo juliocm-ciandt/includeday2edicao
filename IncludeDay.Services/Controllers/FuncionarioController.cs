@@ -39,32 +39,32 @@ namespace IncludeDay.Services.Controllers
             }
 
             var list = from func in _db.Funcionarios
-                           .Include(b => b.Departamento)
-                           .Include(b => b.Departamento.Predio)
+                           .Include(b => b.Projeto)
+                           .Include(b => b.Projeto.Predio)
                            .AsExpandable()
                            .Where(predicate)
                        select new FuncionarioDTO
                        {
                            Id = func.Id,
                            Nome = func.Nome,
-                           Cargo = func.Cargo,
+                           Cargo = func.Cargo ?? string.Empty,
                            Email = func.Email ?? string.Empty,
-                           Departamento = func.Departamento == null ? null : new DepartamentoDTO
+                           Projeto = func.Projeto == null ? null : new ProjetoDTO
                            {
-                               Id = func.Departamento.Id,
-                               Nome = func.Departamento.Nome,
-                               Descricao = func.Departamento.Descricao,
-                               Predio = func.Departamento.Predio == null ? null : new PredioDTO
+                               Id = func.Projeto.Id,
+                               Nome = func.Projeto.Nome,
+                               Descricao = func.Projeto.Descricao,
+                               Predio = func.Projeto.Predio == null ? null : new PredioDTO
                                {
-                                   Id = func.Departamento.Predio.Id,
-                                   Nome = func.Departamento.Predio.Nome,
-                                   Descricao = func.Departamento.Descricao
+                                   Id = func.Projeto.Predio.Id,
+                                   Nome = func.Projeto.Predio.Nome,
+                                   Descricao = func.Projeto.Descricao
                                }
                            }
                        };
 
             //Proposital para causar um lentidão no retorno do serviço para os testers
-            System.Threading.Thread.Sleep(10000);
+            //System.Threading.Thread.Sleep(10000);
 
             return list.ToList();
         }
@@ -74,8 +74,8 @@ namespace IncludeDay.Services.Controllers
         public async Task<IHttpActionResult> GetFuncionario(int id)
         {
             var funcionario = await _db.Funcionarios
-                .Include(b => b.Departamento)
-                .Include(x => x.Departamento.Predio)
+                .Include(b => b.Projeto)
+                .Include(x => x.Projeto.Predio)
                 .Select(b =>
                 new FuncionarioDTO()
                 {
@@ -83,16 +83,16 @@ namespace IncludeDay.Services.Controllers
                     Nome = b.Nome,
                     Cargo = b.Cargo,
                     Email = b.Email,
-                    Departamento = b.Departamento == null ? null : new DepartamentoDTO
+                    Projeto = b.Projeto == null ? null : new ProjetoDTO
                     {
-                        Id = b.Departamento.Id,
-                        Nome = b.Departamento.Nome,
-                        Descricao = b.Departamento.Descricao,
-                        Predio = b.Departamento.Predio == null ? null : new PredioDTO
+                        Id = b.Projeto.Id,
+                        Nome = b.Projeto.Nome,
+                        Descricao = b.Projeto.Descricao,
+                        Predio = b.Projeto.Predio == null ? null : new PredioDTO
                         {
-                            Id = b.Departamento.Predio.Id,
-                            Nome = b.Departamento.Predio.Nome,
-                            Descricao = b.Departamento.Predio.Descricao
+                            Id = b.Projeto.Predio.Id,
+                            Nome = b.Projeto.Predio.Nome,
+                            Descricao = b.Projeto.Predio.Descricao
                         }
                     }
                 }).SingleOrDefaultAsync(b => b.Id == id);
@@ -153,11 +153,11 @@ namespace IncludeDay.Services.Controllers
 
             if(FuncionarioExists(Funcionario.Id))
             {
-                var departamento = _db.Departamentos.Find(Funcionario.Departamento.Id);
+                var departamento = _db.Projetos.Find(Funcionario.Projeto.Id);
 
                 if(departamento != null)
                 {
-                    Funcionario.Departamento = departamento;
+                    Funcionario.Projeto = departamento;
                 }
 
                 _db.Funcionarios.Attach(Funcionario);

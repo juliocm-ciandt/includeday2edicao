@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace IncludeDay.Data.Entities
 {
-    public class Departamento
+    public class Projeto
     {
         [Key]
         public int Id { get; set; }

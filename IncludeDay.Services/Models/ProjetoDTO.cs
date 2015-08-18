@@ -7,7 +7,7 @@ using System.Web;
 namespace IncludeDay.Services.Models
 {
     [Serializable]
-    public class DepartamentoDTO
+    public class ProjetoDTO
     {
         [JsonProperty(PropertyName = "Id")]
         public int Id { get; set; }
