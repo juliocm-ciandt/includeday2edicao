@@ -14,19 +14,21 @@
         <div class="site-wrapper-inner">
             <div class="cover-container">
                 <div class="masthead clearfix">
-                    <div class="inner">
-
+                    <a class="navbar-brand" href="index.html">
+                        <img class="img-responsive" alt="Logo CI&T" src="img/logo_ciandt.png">
+                    </a>
+                    <div class="inner" alt="Menu de navegação">
                         <ul class="nav masthead-nav">
                             <li>
-                                <a href="index.html">Home</a>
+                                <a href="index.html" alt="Link para Home">Home</a>
                             </li>
 
                             <li class="active">
-                                <a href="minhasinformacoes.html">Minhas Informações</a>
+                                <a href="minhasinformacoes.html" alt="Link para minhas informações">Minhas Informações</a>
                             </li>
 
                             <li>
-                                <a href="funcionarios.html">Funcionários</a>
+                                <a href="funcionarios.html" alt="Link para lista de funcioários">Funcionários</a>
                             </li>
                         </ul>
                     </div>
@@ -37,40 +39,40 @@
                         <h2>Minhas Informações</h2>
 
                         <!-- Início form -->
-                        <form role="form">
+                        <form role="form" alt="Formulário para preencher minhas informações">
                             <input type="hidden" id="idFuncionario" value="4" />
                             <div class="form-group col-lg-4 col-md-4">
                                 <label for="nome">Nome:</label>
-                                <input type="text" class="form-control" id="nome">
+                                <input type="text" class="form-control" id="nome" placeholder="Informe seu nome" alt="Campo para preencher o seu nome completo" required>
                             </div>
 
                             <div class="form-group col-lg-4 col-md-4">
                                 <label for="cargo">Cargo:</label>
-                                <input type="text" class="form-control" id="cargo">
+                                <input type="text" class="form-control" id="cargo" placeholder="Informe seu cargo" alt="Campo para preencher o seu cargo" required>
                             </div>
 
                             <div class="form-group col-lg-4 col-md-4">
                                 <label for="email">E-mail:</label>
-                                <input type="email" class="form-control" id="email">
+                                <input type="email" class="form-control" id="email" placeholder="Informe seu e-mail" alt="Campo para preencher seu e-mail">
                             </div>
 
                             <div class="form-group col-lg-4 col-md-4">
                                 <label for="idade">Idade</label>
-                                <input type="number" class="form-control" id="idade">
+                                <input type="number" accept="" class="form-control" id="idade" placeholder="Informe sua idade" alt="Campo para preencher a sua idade" min="1" max="99">
                             </div>
 
                             <div class="form-group col-lg-8 col-md-8">
                                 <label for="predio">Prédio:</label>
-                                <select class="form-control" id="predio"></select>
+                                <select class="form-control" id="predio" alt="Campo para selecionar seu prédio"></select>
                             </div>
 
                             <div class="form-group col-lg-12 col-md-12">
                                 <label>Projeto:</label>
-                                <div id="map-image">
+                                <div id="map-image" alt="Mapa para selecionar seu projeto.">
                                 </div>
                             </div>
 
-                            <button type="button" class="btn btn-lg btn-info btn-cadastrar">Salvar &raquo;</button>
+                            <button type="button" class="btn btn-lg btn-info btn-cadastrar" alt="Botão para salvar as alterações">Salvar &raquo;</button>
                         </form>
                         <!-- /form -->
 

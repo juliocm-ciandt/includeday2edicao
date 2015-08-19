@@ -42,7 +42,7 @@
                 Email: $("#email").val(),
                 Idade: $("#idade").val(),
                 Projeto: {
-                    Id: $("[name='projeto'][checked]").val()
+                    Id: $("input[name='projeto']:checked").val()
                 }
             };
 

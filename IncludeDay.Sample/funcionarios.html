@@ -14,16 +14,21 @@
         <div class="site-wrapper-inner">
             <div class="cover-container">
                 <div class="masthead clearfix">
-                    <div class="inner">
+                    <a class="navbar-brand" href="index.html">
+                        <img class="img-responsive" alt="Logo CI&T" src="img/logo_ciandt.png">
+                    </a>
+                    <div class="inner" alt="Menu de navegação">
                         <ul class="nav masthead-nav">
                             <li>
-                                <a href="index.html">Home</a>
+                                <a href="index.html" alt="Link para Home">Home</a>
                             </li>
-                            <li>
-                                <a href="minhasinformacoes.html">Minhas Informações</a>
-                            </li>
+
                             <li class="active">
-                                <a href="funcionarios.html">Funcionários</a>
+                                <a href="minhasinformacoes.html" alt="Link para minhas informações">Minhas Informações</a>
+                            </li>
+
+                            <li>
+                                <a href="funcionarios.html" alt="Link para lista de funcioários">Funcionários</a>
                             </li>
                         </ul>
                     </div>
@@ -31,16 +36,16 @@
                 <div class="container">
                     <div class="row-fluid row-form">
                         <h2>Funcionários</h2>
-                        <div class="panel panel-primary">
+                        <div class="panel panel-primary" alt="Listagem de todos os funcionários">
                             <div class="panel-heading">
                                 <div>
-                                    <span class="clickable filter" data-toggle="tooltip" title="Clique para habilitar filtro" data-container="body">
+                                    <span class="clickable filter" data-toggle="tooltip" title="Clique para habilitar filtro" alt="Clique para habilitar filtro" data-container="body">
                                         <i class="glyphicon glyphicon-filter"></i>
                                     </span>
                                 </div>
                             </div>
                             <div class="panel-body">
-                                <input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" placeholder="Filtrar Funcionários..." />
+                                <input type="text" class="form-control" id="dev-table-filter" alt="Campo de texto para filtrar os funcionários" data-action="filter" data-filters="#dev-table" placeholder="Filtrar Funcionários..." />
                             </div>
                             <table class="table table-hover" id="dev-table">
                                 <thead>
