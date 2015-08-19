@@ -21,7 +21,10 @@ namespace IncludeDay.Services.Models
         [JsonProperty(PropertyName = "Email")]
         public string Email { get; set; }
 
-        [JsonProperty(PropertyName = "Departamento")]
+        [JsonProperty(PropertyName = "Idade")]
+        public int? Idade { get; set; }
+
+        [JsonProperty(PropertyName = "Projeto")]
         public virtual ProjetoDTO Projeto { get; set; }
     }
 }

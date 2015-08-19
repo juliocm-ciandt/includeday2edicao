@@ -15,7 +15,7 @@ namespace IncludeDay.Data.Entities
 
         public string Email { get; set; }
 
-        public int Idade { get; set; }
+        public int? Idade { get; set; }
 
         public virtual Projeto Projeto { get; set; }
     }

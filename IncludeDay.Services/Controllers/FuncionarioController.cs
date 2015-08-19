@@ -10,6 +10,8 @@ using IncludeDay.Data.Entities;
 using LinqKit;
 using IncludeDay.Services.Models;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
+using System;
 
 namespace IncludeDay.Services.Controllers
 {
@@ -48,6 +50,7 @@ namespace IncludeDay.Services.Controllers
                            Id = func.Id,
                            Nome = func.Nome,
                            Cargo = func.Cargo ?? string.Empty,
+                           Idade = func.Idade,
                            Email = func.Email ?? string.Empty,
                            Projeto = func.Projeto == null ? null : new ProjetoDTO
                            {
@@ -64,7 +67,7 @@ namespace IncludeDay.Services.Controllers
                        };
 
             //Proposital para causar um lentidão no retorno do serviço para os testers
-            //System.Threading.Thread.Sleep(10000);
+            System.Threading.Thread.Sleep(10000);
 
             return list.ToList();
         }
@@ -82,6 +85,7 @@ namespace IncludeDay.Services.Controllers
                     Id = b.Id,
                     Nome = b.Nome,
                     Cargo = b.Cargo,
+                    Idade = b.Idade,
                     Email = b.Email,
                     Projeto = b.Projeto == null ? null : new ProjetoDTO
                     {
@@ -151,17 +155,23 @@ namespace IncludeDay.Services.Controllers
             //    return BadRequest(ModelState);
             //}
 
-            if(FuncionarioExists(Funcionario.Id))
+            if (FuncionarioExists(Funcionario.Id))
             {
+                var funcionario = _db.Funcionarios.Find(Funcionario.Id);
                 var departamento = _db.Projetos.Find(Funcionario.Projeto.Id);
 
                 if(departamento != null)
                 {
-                    Funcionario.Projeto = departamento;
+                    funcionario.Projeto = departamento;
                 }
 
-                _db.Funcionarios.Attach(Funcionario);
-                _db.Entry(Funcionario).State = EntityState.Modified;
+                funcionario.Cargo = Funcionario.Cargo;
+                funcionario.Email = Funcionario.Email;
+                funcionario.Idade = Funcionario.Idade;
+                funcionario.Nome = Funcionario.Nome;
+
+                //_db.Funcionarios.Attach(Funcionario);
+                _db.Entry(funcionario).State = EntityState.Modified;
             }
             else
             {
@@ -189,6 +199,16 @@ namespace IncludeDay.Services.Controllers
             return Ok(Funcionario);
         }
 
+        private bool FuncionarioExists(int id)
+        {
+            return _db.Funcionarios.Any(q => q.Id == id);
+        }
+
+        private bool Exists(Funcionario entity)
+        {
+            return _db.Funcionarios.Contains(entity);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -196,11 +216,6 @@ namespace IncludeDay.Services.Controllers
                 _db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        private bool FuncionarioExists(int id)
-        {
-            return _db.Funcionarios.Count(e => e.Id == id) > 0;
         }
     }
 }

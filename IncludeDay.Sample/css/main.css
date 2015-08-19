@@ -35,10 +35,10 @@ body {
     //text-shadow: 0 1px 3px rgba(0,0,0,.5);
 }
 
-.container 
-{
+.container {
     position: relative;
     top: 100px;
+    min-height: 870px;
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -159,8 +159,9 @@ body {
     }
 
     .mastfoot {
-        position: fixed;
-        bottom: 0;
+        position: relative;
+        bottom: -100px;
+        float: left;
     }
     /* Start the vertical centering */
     .site-wrapper-inner {
@@ -245,35 +246,35 @@ h1, p.lead {
             background: green;
         }
 
-.map-area-a {
+.map-area-projeto-1, .map-area-projeto-6 {
     top: 10px;
     left: 0;
     width: 285px;
     height: 165px;
 }
 
-.map-area-b {
+.map-area-projeto-2, .map-area-projeto-7 {
     top: 10px;
     left: 729px;
     width: 340px;
     height: 165px;
 }
 
-.map-area-c {
+.map-area-projeto-3, .map-area-projeto-8 {
     top: 200px;
     left: 0;
     width: 355px;
     height: 150px;
 }
 
-.map-area-d {
+.map-area-projeto-4, .map-area-projeto-9 {
     top: 380px;
     left: 0;
     width: 355px;
     height: 140px;
 }
 
-.map-area-e {
+.map-area-projeto-5, .map-area-projeto-10 {
     top: 380px;
     left: 418px;
     width: 651px;

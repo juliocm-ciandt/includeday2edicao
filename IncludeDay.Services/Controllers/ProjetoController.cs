@@ -10,6 +10,7 @@ using LinqKit;
 using System.Collections.Generic;
 using IncludeDay.Services.Models;
 using System.Threading.Tasks;
+using System.Text;
 
 namespace IncludeDay.Services.Controllers
 {
@@ -18,9 +19,46 @@ namespace IncludeDay.Services.Controllers
         private IncludeDayContext _db = new IncludeDayContext();
 
         // GET: api/Projeto
-        [ResponseType(typeof(List<ProjetoDTO>))]
-        public List<ProjetoDTO> GetProjeto([FromUri]Projeto filter)
+        //[ResponseType(typeof(List<ProjetoDTO>))]
+        //public List<ProjetoDTO> GetProjeto([FromUri]Projeto filter)
+        //{
+        //    var predicate = PredicateBuilder.True<Projeto>();
+
+        //    if (filter != null && !string.IsNullOrEmpty(filter.Nome))
+        //    {
+        //        predicate = predicate.And(p => p.Nome.Contains(filter.Nome));
+        //    }
+
+        //    if (filter != null && filter.Predio.Id > 0)
+        //    {
+        //        predicate = predicate.And(p => p.Predio.Id == filter.Predio.Id);
+        //    }
+
+        //    var list = from proj in _db.Projetos
+        //                   .Include(x => x.Predio)
+        //                   .AsExpandable()
+        //                   .Where(predicate)
+        //               select new ProjetoDTO
+        //               {
+        //                   Id = proj.Id,
+        //                   Nome = proj.Nome,
+        //                   Descricao = proj.Descricao,
+        //                   Predio = proj.Predio == null ? null : new PredioDTO
+        //                   {
+        //                       Id = proj.Predio.Id,
+        //                       Nome = proj.Predio.Nome,
+        //                       Descricao = proj.Predio.Descricao
+        //                   }
+        //               };
+
+        //    return list.ToList();
+        //}
+
+        [ResponseType(typeof(string))]
+        public string GetProjeto([FromUri]Projeto filter)
         {
+            StringBuilder retorno = new StringBuilder();
+
             var predicate = PredicateBuilder.True<Projeto>();
 
             if (filter != null && !string.IsNullOrEmpty(filter.Nome))
@@ -50,7 +88,16 @@ namespace IncludeDay.Services.Controllers
                            }
                        };
 
-            return list.ToList();
+            foreach(var projeto in list)
+            {
+                retorno.AppendFormat("<label class=\"map-area map-area-projeto-{0} center-block\">", projeto.Id);
+                retorno.AppendFormat("  <input name=\"projeto\" value=\"{0}\" type=\"radio\" alt=\"{1}\" />", projeto.Id, projeto.Nome);
+                retorno.AppendFormat("  <span class=\"text-center\">{0}</span>", projeto.Nome);
+                retorno.Append("</label>");
+                retorno.AppendLine();                  
+            }
+
+            return retorno.ToString();
         }
 
         // GET: api/Projeto/5

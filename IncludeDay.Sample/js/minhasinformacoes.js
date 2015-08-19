@@ -20,7 +20,8 @@
                 $("#idade").val(data.Idade);
                 $("#predio").val(data.Projeto.Predio.Id);
                 $("#predio").trigger("change");
-                $("#projeto").val(data.Projeto.Id);
+                //$("#projeto").val(data.Projeto.Id);
+                $('input[name=projeto][value=' + data.Projeto.Id + ']').attr('checked', true);
 
             },
             error: function (xhr) {
@@ -41,7 +42,7 @@
                 Email: $("#email").val(),
                 Idade: $("#idade").val(),
                 Projeto: {
-                    Id: $("#projeto").val()
+                    Id: $("[name='projeto'][checked]").val()
                 }
             };
 
@@ -112,11 +113,13 @@
                     data: dadosPredio,
                     dataType: "JSON",
                     success: function (data) {
-                        $select.html('');
-                        $select.append('<option value="0">Selecione</option>');
-                        $.each(data, function (key, val) {
-                            $select.append('<option value="' + val.Id + '">' + val.Nome + '</option>');
-                        });
+                        //$select.html('');
+                        //$select.append('<option value="0">Selecione</option>');
+                        //$.each(data, function (key, val) {
+                        //    $select.append('<option value="' + val.Id + '">' + val.Nome + '</option>');
+                        //});
+                        $("#map-image").empty();
+                        $("#map-image").html(data);
                     },
                     error: function () {
                         $select.html('<option value="-1">Nenhum prédio disponível</option>');
