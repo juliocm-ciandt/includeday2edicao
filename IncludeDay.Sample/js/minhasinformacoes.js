@@ -99,6 +99,7 @@
             //TODO: Implementar o método
             if (predioId > 0) {
                 $select = $('#projeto');
+                $mapa = $('#map-image');
 
                 var dadosPredio = {
                     Predio: {
@@ -113,18 +114,15 @@
                     data: dadosPredio,
                     dataType: "JSON",
                     success: function (data) {
-                        //$select.html('');
-                        //$select.append('<option value="0">Selecione</option>');
-                        //$.each(data, function (key, val) {
-                        //    $select.append('<option value="' + val.Id + '">' + val.Nome + '</option>');
-                        //});
-                        $("#map-image").empty();
-                        $("#map-image").html(data);
+                        $mapa.empty();
+                        $mapa.html(data);
                     },
                     error: function () {
                         $select.html('<option value="-1">Nenhum prédio disponível</option>');
                     }
                 });
+            } else {
+                $mapa.empty();
             }
         });
 

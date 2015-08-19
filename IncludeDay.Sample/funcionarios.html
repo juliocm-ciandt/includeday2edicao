@@ -23,11 +23,11 @@
                                 <a href="index.html" alt="Link para Home">Home</a>
                             </li>
 
-                            <li class="active">
+                            <li>
                                 <a href="minhasinformacoes.html" alt="Link para minhas informações">Minhas Informações</a>
                             </li>
 
-                            <li>
+                            <li class="active">
                                 <a href="funcionarios.html" alt="Link para lista de funcioários">Funcionários</a>
                             </li>
                         </ul>
@@ -45,7 +45,10 @@
                                 </div>
                             </div>
                             <div class="panel-body">
-                                <input type="text" class="form-control" id="dev-table-filter" alt="Campo de texto para filtrar os funcionários" data-action="filter" data-filters="#dev-table" placeholder="Filtrar Funcionários..." />
+                                <div class="col-lg-10 col-md-10">
+                                    <input type="text" class="form-control" id="campo-filtro" alt="Campo de texto para filtrar os funcionários" data-action="filter" data-filters="#dev-table" placeholder="Filtrar Funcionários..." />
+                                </div>
+                                <button type="button" id="btn-filtrar" class="btn btn-success col-lg-2 col-md-2" alt="Botão para filtrar os registros">Filtrar &raquo;</button>
                             </div>
                             <table class="table table-hover" id="dev-table">
                                 <thead>

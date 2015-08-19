@@ -2,62 +2,77 @@
 
     var handleCarregarFuncionarios = function () {
 
-        $.ajax({
-            async: true,
-            type: "GET",
-            url: URL_SERVICO + '/Funcionario/',
-            dataType: "JSON",
-            processData: true,
-            success: function (data) {
-
-                console.log(data);
-
-                $.each(data, function (i, item) {
-                    var tr = $('<tr/>');
-                    tr.append("<td>" + item.Id + "</td>");
-                    tr.append("<td>" + item.Nome + "</td>");
-                    tr.append("<td>" + item.Cargo + "</td>");
-                    tr.append("<td>" + item.Email + "</td>");
-                    $('.table-result').append(tr);
-                });
-            },
-            error: function (xhr) {
-                alert("Ocorreu um erro ao carregar a lista de funcionários.");
-            }
-        });
+        $("#btn-filtrar").trigger("click");
 
     }
 
-    var handleAplicarFiltro = function () {
-        $.fn.extend({
-            filterTable: function () {
-                return this.each(function () {
-                    $(this).on('keyup', function (e) {
-                        $('.filterTable_no_results').remove();
-                        var $this = $(this),
-                            search = $this.val().toLowerCase(),
-                            target = $this.attr('data-filters'),
-                            $target = $(target),
-                            $rows = $target.find('tbody tr');
+    var handleFiltrarFuncionarios = function () {
 
-                        if (search == '') {
-                            $rows.show();
-                        } else {
-                            $rows.each(function () {
-                                var $this = $(this);
-                                $this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
-                            })
-                            if ($target.find('tbody tr:visible').size() === 0) {
-                                var col_count = $target.find('tr').first().find('td').size();
-                                var no_results = $('<tr class="filterTable_no_results"><td colspan="' + col_count + '">Resultados não encontrados.</td></tr>');
-                                $target.find('tbody').append(no_results);
-                            }
-                        }
+        $("#btn-filtrar").on("click", function () {
+
+            var dadosFuncionarios = {
+                Nome: $("#campo-filtro").val()
+            };
+
+            $.ajax({
+                async: true,
+                type: "GET",
+                data: dadosFuncionarios,
+                url: URL_SERVICO + '/Funcionario/',
+                dataType: "JSON",
+                processData: true,
+                success: function (data) {
+                    $('.table-result').empty();
+                    console.log(data);
+
+                    $.each(data, function (i, item) {
+                        var tr = $('<tr/>');
+                        tr.append("<td>" + item.Id + "</td>");
+                        tr.append("<td>" + item.Nome + "</td>");
+                        tr.append("<td>" + item.Cargo + "</td>");
+                        tr.append("<td>" + item.Email + "</td>");
+                        $('.table-result').append(tr);
                     });
-                });
-            }
+                },
+                error: function (xhr) {
+                    alert("Ocorreu um erro ao carregar a lista de funcionários.");
+                }
+            });
+
         });
-        $('[data-action="filter"]').filterTable();
+    }
+
+    var handleAplicarFiltro = function () {
+        //$.fn.extend({
+        //    filterTable: function () {
+        //        return this.each(function () {
+        //            $(this).on('keyup', function (e) {
+        //                $('.filterTable_no_results').remove();
+        //                var $this = $(this),
+        //                    search = $this.val().toLowerCase(),
+        //                    target = $this.attr('data-filters'),
+        //                    $target = $(target),
+        //                    $rows = $target.find('tbody tr');
+
+        //                if (search == '') {
+        //                    $rows.show();
+        //                } else {
+        //                    $rows.each(function () {
+        //                        var $this = $(this);
+        //                        $this.text().toLowerCase().indexOf(search) === -1 ? $this.hide() : $this.show();
+        //                    })
+        //                    if ($target.find('tbody tr:visible').size() === 0) {
+        //                        var col_count = $target.find('tr').first().find('td').size();
+        //                        var no_results = $('<tr class="filterTable_no_results"><td colspan="' + col_count + '">Resultados não encontrados.</td></tr>');
+        //                        $target.find('tbody').append(no_results);
+        //                    }
+        //                }
+        //            });
+        //        });
+        //    }
+        //});
+
+        //$('[data-action="filter"]').filterTable();
 
         $('.container').on('click', '.panel-heading span.filter', function (e) {
             var $this = $(this),
@@ -74,6 +89,7 @@
     return {
         //Função principal que inicializa o módulo
         inicializar: function () {
+            handleFiltrarFuncionarios();
             handleCarregarFuncionarios();
             handleAplicarFiltro();
         }
