@@ -49,7 +49,7 @@ namespace IncludeDay.Data.Migrations
                 new Funcionario() { Id = 1, Nome = "José da Silva", Cargo = "Gerente de RH", Projeto = projeto7, Email = "Jose.silva@includeday.com.br", Idade = 34 },
                 new Funcionario() { Id = 2, Nome = "Maria Fernanda da Silva", Cargo = "Gerente de Marketing", Projeto = projeto3, Email = "maria@includeday.com.br", Idade = 28 },
                 new Funcionario() { Id = 3, Nome = "Juliana Aparecida Fernandes", Cargo = "Gerente Financeiro", Projeto = projeto1, Email = "juliana@includeday.com.br", Idade = 44 },
-                new Funcionario() { Id = 4, Nome = "Usuário Participante do IncludeDay", Cargo = null, Idade = null, Email = null });
+                new Funcionario() { Id = 4, Nome = "Usuário IncludeDay", Cargo = "Desenvolvedor", Idade = 18, Email = "includeday@ciandt.com" });
 
             base.Seed(context);
         }
