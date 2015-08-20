@@ -57,8 +57,48 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\font-awesome-4.4.0\css\font-awesome.css" />
+    <Content Include="css\font-awesome-4.4.0\css\font-awesome.min.css" />
+    <Content Include="css\font-awesome-4.4.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="css\font-awesome-4.4.0\HELP-US-OUT.txt" />
     <Content Include="img\background.png" />
     <Content Include="img\Thumbs.db" />
+    <Content Include="js\libs\jquery-checkradios\css\icons\icomoon.eot" />
+    <Content Include="js\libs\jquery-checkradios\css\icons\icomoon.ttf" />
+    <Content Include="js\libs\jquery-checkradios\css\icons\icomoon.woff" />
+    <Content Include="js\libs\jquery-checkradios\LICENSE" />
+    <Content Include="js\libs\jquery-checkradios\README.md" />
+    <Content Include="css\font-awesome-4.4.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="css\font-awesome-4.4.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="css\font-awesome-4.4.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="css\font-awesome-4.4.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="css\font-awesome-4.4.0\fonts\FontAwesome.otf" />
+    <Content Include="css\font-awesome-4.4.0\less\animated.less" />
+    <Content Include="css\font-awesome-4.4.0\less\bordered-pulled.less" />
+    <Content Include="css\font-awesome-4.4.0\less\core.less" />
+    <Content Include="css\font-awesome-4.4.0\less\fixed-width.less" />
+    <Content Include="css\font-awesome-4.4.0\less\font-awesome.less" />
+    <Content Include="css\font-awesome-4.4.0\less\icons.less" />
+    <Content Include="css\font-awesome-4.4.0\less\larger.less" />
+    <Content Include="css\font-awesome-4.4.0\less\list.less" />
+    <Content Include="css\font-awesome-4.4.0\less\mixins.less" />
+    <Content Include="css\font-awesome-4.4.0\less\path.less" />
+    <Content Include="css\font-awesome-4.4.0\less\rotated-flipped.less" />
+    <Content Include="css\font-awesome-4.4.0\less\stacked.less" />
+    <Content Include="css\font-awesome-4.4.0\less\variables.less" />
+    <Content Include="css\font-awesome-4.4.0\scss\font-awesome.scss" />
+    <Content Include="css\font-awesome-4.4.0\scss\_animated.scss" />
+    <Content Include="css\font-awesome-4.4.0\scss\_bordered-pulled.scss" />
+    <Content Include="css\font-awesome-4.4.0\scss\_core.scss" />
+    <Content Include="css\font-awesome-4.4.0\scss\_fixed-width.scss" />
+    <Content Include="css\font-awesome-4.4.0\scss\_icons.scss" />
+    <Content Include="css\font-awesome-4.4.0\scss\_larger.scss" />
+    <Content Include="css\font-awesome-4.4.0\scss\_list.scss" />
+    <Content Include="css\font-awesome-4.4.0\scss\_mixins.scss" />
+    <Content Include="css\font-awesome-4.4.0\scss\_path.scss" />
+    <Content Include="css\font-awesome-4.4.0\scss\_rotated-flipped.scss" />
+    <Content Include="css\font-awesome-4.4.0\scss\_stacked.scss" />
+    <Content Include="css\font-awesome-4.4.0\scss\_variables.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -70,6 +110,17 @@
     <Content Include="js\libs\AppSettings.js" />
     <Content Include="js\funcionarios.js" />
     <Content Include="js\index.js" />
+    <Content Include="js\libs\jquery-checkradios\css\icons\icomoon.svg" />
+    <Content Include="js\libs\jquery-checkradios\css\jquery.checkradios.css" />
+    <Content Include="js\libs\jquery-checkradios\css\jquery.checkradios.min.css" />
+    <Content Include="js\libs\jquery-checkradios\demo_assets\css\examples.css" />
+    <Content Include="js\libs\jquery-checkradios\demo_assets\img\basic_example.jpg" />
+    <Content Include="js\libs\jquery-checkradios\demo_assets\img\coffee.png" />
+    <Content Include="js\libs\jquery-checkradios\demo_assets\img\custom_example.jpg" />
+    <Content Include="js\libs\jquery-checkradios\demo_assets\img\example_header.jpg" />
+    <Content Include="js\libs\jquery-checkradios\demo_assets\img\font_awesome_example.jpg" />
+    <Content Include="js\libs\jquery-checkradios\index.html" />
+    <Content Include="js\libs\jquery-checkradios\js\jquery.checkradios.js" />
     <Content Include="js\minhasinformacoes.js" />
     <Content Include="minhasinformacoes.html" />
     <Content Include="css\main.css" />
