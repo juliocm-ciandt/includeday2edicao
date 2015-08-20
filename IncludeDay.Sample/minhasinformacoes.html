@@ -21,11 +21,11 @@
                     </a>
                     <div class="inner" alt="Menu de navegação">
                         <ul class="nav masthead-nav">
-                            <li>
+                            <li class="active">
                                 <a href="index.html" alt="Link para Home" accesskey="H">Home</a>
                             </li>
 
-                            <li class="active">
+                            <li>
                                 <a href="minhasinformacoes.html" alt="Link para minhas informações" accesskey="M">Minhas Informações</a>
                             </li>
 
@@ -45,12 +45,12 @@
                             <input type="hidden" id="idFuncionario" value="4" />
                             <div class="form-group col-lg-4 col-md-4">
                                 <label for="nome">Nome:</label>
-                                <input type="text" class="form-control" id="nome" placeholder="Informe seu nome" alt="Campo para preencher o seu nome completo" tabindex="1" autofocus required aria-label="Campo para preencher o seu nome completo">
+                                <input type="text" class="form-control" id="nome" placeholder="Informe seu nome" alt="Campo para preencher o seu nome completo" tabindex="1" autofocus aria-label="Campo para preencher o seu nome completo">
                             </div>
 
                             <div class="form-group col-lg-4 col-md-4">
                                 <label for="cargo">Cargo:</label>
-                                <input type="text" class="form-control" id="cargo" placeholder="Informe seu cargo" alt="Campo para preencher o seu cargo" tabindex="2" required aria-label="Campo para preencher o seu cargo">
+                                <input type="text" class="form-control" id="cargo" placeholder="Informe seu cargo" alt="Campo para preencher o seu cargo" tabindex="2" aria-label="Campo para preencher o seu cargo">
                             </div>
 
                             <div class="form-group col-lg-4 col-md-4">
@@ -65,7 +65,7 @@
 
                             <div class="form-group col-lg-8 col-md-8">
                                 <label for="predio">Prédio:</label>
-                                <select class="form-control" id="predio" alt="Campo para selecionar seu prédio" tabindex="5" aria-label="Campo para selecionar seu prédio" required min="1" max="99"></select>
+                                <select class="form-control" id="predio" alt="Campo para selecionar seu prédio" tabindex="5" aria-label="Campo para selecionar seu prédio"></select>
                             </div>
 
                             <div class="form-group col-lg-12 col-md-12">
@@ -74,7 +74,7 @@
                                 </div>
                             </div>
 
-                            <button type="button" class="btn btn-lg btn-info btn-cadastrar" alt="Botão para salvar as alterações" accesskey="S" aria-label="Botão para salvar as alterações">Salvar &raquo;</button>
+                            <button id="btn-salvar" type="button" class="btn btn-lg btn-info btn-cadastrar" alt="Botão para salvar as alterações" accesskey="S" aria-label="Botão para salvar as alterações">Salvar &raquo;</button>
                         </form>
                         <!-- /form -->
 

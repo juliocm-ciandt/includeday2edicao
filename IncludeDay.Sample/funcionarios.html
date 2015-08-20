@@ -28,7 +28,7 @@
                                 <a href="minhasinformacoes.html" alt="Link para minhas informações" accesskey="M">Minhas Informações</a>
                             </li>
 
-                            <li class="active">
+                            <li>
                                 <a href="funcionarios.html" alt="Link para lista de funcioários" accesskey="F">Funcionários</a>
                             </li>
                         </ul>
@@ -40,18 +40,18 @@
                         <div class="panel panel-primary" alt="Listagem de todos os funcionários">
                             <div class="panel-heading">
                                 <div>
-                                    <span class="clickable filter" data-toggle="tooltip" title="Clique para habilitar filtro" alt="Clique para habilitar filtro" data-container="body">
+                                    <span class="clickable filter" data-toggle="tooltip" title="Clique para habilitar filtro" alt="Clique para habilitar filtro" tabindex="1" data-container="body">
                                         <i class="glyphicon glyphicon-filter"></i>
                                     </span>
                                 </div>
                             </div>
                             <div class="panel-body">
                                 <div class="col-lg-10 col-md-10">
-                                    <input type="text" class="form-control" id="campo-filtro" alt="Campo de texto para filtrar os funcionários" data-action="filter" data-filters="#dev-table" placeholder="Filtrar Funcionários..." />
+                                    <input type="text" class="form-control" id="campo-filtro" alt="Campo de texto para filtrar os funcionários" tabindex="2" placeholder="Parte do nome ou nome do funcionário..." />
                                 </div>
-                                <button type="button" id="btn-filtrar" class="btn btn-success col-lg-2 col-md-2" alt="Botão para filtrar os registros" accesskey="I">Filtrar &raquo;</button>
+                                <button type="button" id="btn-filtrar" class="btn btn-success col-lg-2 col-md-2" alt="Botão para filtrar os registros" tabindex="3" accesskey="I">Filtrar &raquo;</button>
                             </div>
-                            <table class="table table-hover" id="dev-table">
+                            <table class="table table-hover" id="dev-table" tabindex="4">
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -59,7 +59,7 @@
                                         <th>Cargo</th>
                                         <th>E-mail</th>
                                     </tr>
-                                </thead>
+                                <thead>
                                 <tbody class="table-result"></tbody>
                             </table>
                         </div>

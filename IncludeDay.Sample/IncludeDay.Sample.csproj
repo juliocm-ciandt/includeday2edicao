@@ -14,7 +14,7 @@
     <RootNamespace>IncludeDay.Sample</RootNamespace>
     <AssemblyName>IncludeDay.Sample</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -129,7 +129,6 @@
     <Content Include="funcionarios.html" />
     <Content Include="img\logo_ciandt.png" />
     <Content Include="js\libs\bootstrap.js" />
-    <Content Include="js\libs\funcoes.js" />
     <Content Include="js\libs\jquery-2.1.3.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -151,7 +150,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>16297</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:16297/</IISUrl>
+          <IISUrl>http://includeday/IncludeDay.Sample</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

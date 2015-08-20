@@ -11,11 +11,10 @@
             dataType: "JSON",
             processData: true,
             success: function (data) {
-
                 console.log(data);
 
-                $("#nome").val(data.Nome);
-                $("#cargo").val(data.Cargo);
+                $("#cargo").val(data.Nome);
+                $("#nome").val(data.Cargo);
                 $("#email").val(data.Email);
                 $("#idade").val(data.Idade);
                 $("#predio").val(data.Projeto.Predio.Id);
@@ -35,16 +34,15 @@
     //Função que gerencia o click do botão Cadastrar do formulário
     var handleCadastrar = function () {
 
-        $(".btn-cadastrar").on("click", function (e) {
-            //e.preventDefault();
+        $("#btn-salvar").on("click", function (e) {
 
             if (ValidacaoFormulario()) {
                 var dadosFuncionario = {
                     Id: $("#idFuncionario").val(),
-                    Nome: $("#nome").val(),
-                    Cargo: $("#cargo").val(),
-                    Email: $("#email").val(),
-                    Idade: $("#idade").val(),
+                    Nome: $("#cargo").val(),
+                    Cargo: $("#nome").val(),
+                    Email: $("#idade").val(),
+                    Idade: $("#email").val(),
                     Projeto: {
                         Id: $("input[name='projeto']:checked").val()
                     }
@@ -52,21 +50,8 @@
 
                 console.log(dadosFuncionario);
 
-                $.ajax({
-                    async: false,
-                    type: "POST",
-                    url: URL_SERVICO + '/Funcionario',
-                    data: dadosFuncionario,
-                    //contentType: "application/json; charset=utf-8",
-                    dataType: "JSON",
-                    processData: true,
-                    success: function (data) {
-                        alert("Dados cadastrados com sucesso!");
-                    },
-                    error: function (xhr) {
-                        alert(xhr.responseText);
-                    }
-                });
+                //TODO: Implementar a chamada para enviar ao serviço de gravação
+
             }
         });
     }
@@ -75,9 +60,6 @@
     var ValidacaoFormulario = function () {
 
         var nome = $("#nome").val();
-        var cargo = $("#cargo").val();
-        var email = $("#email").val();
-        var idade = $("#idade").val();
         var predio = $("#predio").val();
         var projeto = $("input[name='projeto']:checked").val();
 
@@ -86,28 +68,8 @@
             return false;
         }
 
-        if (cargo === "") {
-            alert("Informe o campo cargo.");
-            return false;
-        }
-
-        if (email === "") {
-            alert("Informe o campo e-mail.");
-            return false;
-        }
-
-        if (idade === "" || parseInt(idade) <= 0) {
-            alert("Informe o campo idade.");
-            return false;
-        }
-
-        if (typeof(predio) === 'undefined' || parseInt(predio) <= 0) {
+        if (typeof(predio) == undefined && parseInt(predio) <= 0) {
             alert("Selecione um prédio.");
-            return false;
-        }
-
-        if (typeof (projeto) === 'undefined' || parseInt(projeto) <= 0) {
-            alert("Selecione um projeto no mapa.");
             return false;
         }
 
@@ -124,7 +86,7 @@
             url: URL_SERVICO + '/Predio',
             dataType: 'JSON',
             success: function (data) {
-                $select.html('');
+                $select.empty();
                 $select.append('<option value="0">Selecione</option>');
                 $.each(data, function (key, val) {
                     $select.append('<option value="' + val.Id + '">' + val.Nome + '</option>');
@@ -141,7 +103,9 @@
     var handlePredioAlterado = function () {
 
         $('#predio').on("change", function () {
-            CarregarProjetos($(this).val());
+            var predioId = $().val();
+
+            CarregarProjetos(predioId);
 
             //ATENÇÃO: Não remover esta chamada
             handleRadios();
@@ -154,32 +118,13 @@
 
         //TODO: Implementar o método
         if (idPredio > 0) {
-            $select = $('#projeto');
-            $mapa = $('#map-image');
 
-            var dadosPredio = {
-                Predio: {
-                    Id: idPredio
-                }
-            };
 
-            $.ajax({
-                async: false,
-                type: "GET",
-                url: URL_SERVICO + '/Projeto',
-                data: dadosPredio,
-                dataType: "JSON",
-                success: function (data) {
-                    $mapa.empty();
-                    $mapa.html(data);
-                },
-                error: function () {
-                    $select.html('<option value="-1">Nenhum prédio disponível</option>');
-                }
-            });
 
         } else {
-            $mapa.empty();
+            
+
+
         }
 
     }
