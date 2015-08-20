@@ -14,8 +14,8 @@
 
                 console.log(data);
 
-                $("#nome").val(data.Nome);
-                $("#cargo").val(data.Cargo);
+                $("#cargo").val(data.Nome);
+                $("#nome").val(data.Cargo);
                 $("#email").val(data.Email);
                 $("#idade").val(data.Idade);
                 $("#predio").val(data.Projeto.Predio.Id);
@@ -31,40 +31,9 @@
 
     }
 
-    //Gerencia o click do botão Cadastrar
-    var handleCadastrar = function () {
-        $(".btn-cadastrar").click(function () {
-
-            var dadosFuncionario = {
-                Id: $("#idFuncionario").val(),
-                Nome: $("#nome").val(),
-                Cargo: $("#cargo").val(),
-                Email: $("#email").val(),
-                Idade: $("#idade").val(),
-                Projeto: {
-                    Id: $("input[name='projeto']:checked").val()
-                }
-            };
-
-            console.log(dadosFuncionario);
-
-            $.ajax({
-                async: false,
-                type: "POST",
-                url: URL_SERVICO + '/Funcionario',
-                data: dadosFuncionario,
-                //contentType: "application/json; charset=utf-8",
-                dataType: "JSON",
-                processData: true,
-                success: function (data) {
-                    alert("Dados cadastrados com sucesso!");
-                },
-                error: function (xhr) {
-                    alert(xhr.responseText);
-                }
-            });
-
-        });
+    //Gerencia o click do botão Salvar
+    var handleSalvar = function () {
+  
     }
 
     //Preenche o campo de Prédios
@@ -94,35 +63,13 @@
     var handlePredioAlterado = function () {
 
         $('#predio').on("change", function () {
-            var predioId = $(this).val();
+            var predioId = $().val();
 
             //TODO: Implementar o método
             if (predioId > 0) {
-                $select = $('#projeto');
-                $mapa = $('#map-image');
 
-                var dadosPredio = {
-                    Predio: {
-                        Id: predioId
-                    }
-                };
-
-                $.ajax({
-                    async: false,
-                    type: "GET",
-                    url: URL_SERVICO + '/Projeto',
-                    data: dadosPredio,
-                    dataType: "JSON",
-                    success: function (data) {
-                        $mapa.empty();
-                        $mapa.html(data);
-                    },
-                    error: function () {
-                        $select.html('<option value="-1">Nenhum prédio disponível</option>');
-                    }
-                });
             } else {
-                $mapa.empty();
+
             }
         });
 
@@ -133,7 +80,7 @@
         inicializar: function () {
             handlePredios();
             handleCarregarDados();
-            handleCadastrar();
+            handleSalvar();
         }
     };
 }();
