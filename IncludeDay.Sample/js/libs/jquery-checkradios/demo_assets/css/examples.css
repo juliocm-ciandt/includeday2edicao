@@ -1,0 +1,318 @@
+/*
+
+    Custom Input Styles
+	
+*/
+.custom{
+    
+	font-size:25px;
+    color:#FF0084;
+	border:2px solid #FF0084;
+	
+	-webkitbox-shadow:inset 0 0.1em 0.1em rgba(0,0,0,0.3);
+	 -moz-box-shadow:inset 0 0.1em 0.1em rgba(0,0,0,0.3);
+	   box-shadow:inset 0 0.1em 0.1em rgba(0,0,0,0.3);
+	
+
+}
+
+
+.custom.focus{
+
+	-webkit-box-shadow:inset 0 0.1em 0.1em rgba(0,0,0,0.3), 0px 0px 3px rgba(255,0,132,0.5);
+	-moz-box-shadow:inset 0 0.1em 0.1em rgba(0,0,0,0.3), 0px 0px 3px rgba(255,0,132,0.5);
+	box-shadow:inset 0 0.1em 0.1em rgba(0,0,0,0.3), 0px 0px 3px rgba(255,0,132,0.5);
+	border-color:#FF0084;
+
+}
+
+
+.custom-style{
+    
+	font-size:25px;
+    color:#FF0084;
+	border:2px solid#FF0084;
+	
+	-webkitbox-shadow:inset 0px 0.1em 0.1em rgba(0,0,0,0.3);
+	 -moz-box-shadow:inset 0px 0.1em 0.1em rgba(0,0,0,0.3);
+	   box-shadow:inset 0px 0.1em 0.1em rgba(0,0,0,0.3);
+	
+
+}
+
+
+
+.custom-style.focus{
+
+	-webkit-box-shadow:inset 0 0.1em 0.1em rgba(0,0,0,0.3), 0px 0px 3px rgba(255,0,132,0.5);
+	-moz-box-shadow:inset 0 0.1em 0.1em rgba(0,0,0,0.3), 0px 0px 3px rgba(255,0,132,0.5);
+	box-shadow:inset 0 0.1em 0.1em rgba(0,0,0,0.3), 0px 0px 3px rgba(255,0,132,0.5);
+	border-color:#FF0084;
+
+}
+
+
+
+
+
+/*
+
+    Example Page Styles
+	
+*/
+body{
+
+    font-family:Helvetica,Arial, sans-serif;
+	color:#333;
+
+}
+
+
+
+
+
+.container{
+
+    width:900px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:3em;
+	
+	
+	
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
+	
+	-webkit-box-shadow:0px 5px 5px rgba(0,0,0,0.2);
+	-moz-box-shadow:0px 5px 5px rgba(0,0,0,0.2);
+	box-shadow:0px 5px 5px rgba(0,0,0,0.2);
+
+
+}
+
+.header{
+    
+	border-bottom:1px solid #666;
+	border-bottom:1px solid rgba(0,0,0,0.1);
+	-webkit-box-shadow:0px 1px 0px rgba(255,255,255,0.9);
+	-moz-box-shadow:0px 1px 0px rgba(255,255,255,0.9);
+	box-shadow:0px 1px 0px rgba(255,255,255,0.9);
+    
+	padding:1em;
+	
+	background-color:#333;
+	color:#FFF;
+	
+	-webkit-border-radius:5px 5px 0 0;
+	-moz-border-radius:5px 5px 0 0;
+	border-radius:5px 5px 0 0;
+
+}
+
+
+.header h2{
+
+    text-align:center;
+	font-size:45px;
+	
+	
+
+}
+
+
+.header h2 a{
+
+    text-align:center;
+	font-size:45px;
+	
+	color:#ff0084;
+	text-shadow:1px 2px 0px #b20d62;
+	
+	text-decoration:none;
+
+}
+
+.header p{
+
+    text-align:center;
+
+}
+
+
+a:hover{
+
+    text-decoration:none;
+
+}
+
+.label{
+
+    margin-bottom:10px;
+
+}
+
+.section{
+
+    margin-bottom:2em;
+	
+	padding:0.4em;
+	padding-bottom:2em;
+	
+	
+	border-bottom:1px solid rgba(0,0,0,0.1);
+	box-shadow:0px 1px 0px rgba(255,255,255,0.9);
+	-webkit-box-shadow:0px 1px 0px rgba(255,255,255,0.9);
+	-moz-box-shadow:0px 1px 0px rgba(255,255,255,0.9);
+
+
+}
+
+.section-title{
+
+    color:#FF0084;
+
+}
+
+
+.content-body{
+
+    
+    padding:1em;
+	padding-top:3em;
+	background-color:#F9F9F9;
+	
+	-webkit-border-radius:0 0 5px 5px;
+	-moz-border-radius:0 0 5px 5px;
+	border-radius:0 0 5px 5px;
+
+}
+
+
+.code-title{
+
+	margin-bottom:0.5em;
+
+}
+
+.code{
+
+
+    border:2px dashed #999999;
+	padding:2em;
+	padding-bottom:1em;
+	margin-bottom:2em;
+	margin-top:0;
+	
+	background-color:#FDFDFD;
+
+
+}
+
+.status{
+
+    padding-top:0.5em;
+
+
+}
+
+
+
+footer{
+
+    text-align:center;
+	padding-bottom:1em;
+
+}
+
+footer span{
+
+    margin-right:2em;
+
+}
+
+footer span:last-child{
+
+    margin-right:0;
+
+}
+
+
+footer a{
+
+    color:#FF0084;
+
+}
+
+.copyright{
+
+    margin-top:2em;
+	color:#CCC;
+
+}
+
+
+
+/*Bottom Section*/
+.buy-coffee{
+
+    padding-top:100px;
+	padding-bottom:100px;
+	border-bottom:none;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none;
+
+}
+
+.coffee-holder{
+
+    text-align:center;
+
+}
+
+.coffee-link{
+
+    text-align:center;
+
+}
+
+.coffee-link a, .coffee-link a:hover, .coffee-link a:active{
+
+    font-family: 'Lobster', cursive;
+	font-size:40px;
+	color:#915B3E;
+	text-decoration:none;
+
+}
+
+.bottom-txt{
+
+    text-align:center;
+	padding:0px 20% 0 20%;
+	line-height:1.3em;
+
+}
+
+.bottom-txt a{
+
+    color:#FF0084;
+
+}
+
+.thanks{
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+
+
+
+
+
+
