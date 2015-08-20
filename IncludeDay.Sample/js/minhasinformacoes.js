@@ -14,8 +14,8 @@
 
                 console.log(data);
 
-                $("#nome").val(data.Nome);
-                $("#cargo").val(data.Cargo);
+                $("#cargo").val(data.Nome);
+                $("#nome").val(data.Cargo);
                 $("#email").val(data.Email);
                 $("#idade").val(data.Idade);
                 $("#predio").val(data.Projeto.Predio.Id);
@@ -38,7 +38,7 @@
             var dadosFuncionario = {
                 Id: $("#idFuncionario").val(),
                 Nome: $("#nome").val(),
-                Cargo: $("#cargo").val(),
+                Cargo: $("#nome").val(),
                 Email: $("#email").val(),
                 Idade: $("#idade").val(),
                 Projeto: {

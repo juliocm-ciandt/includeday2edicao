@@ -29,7 +29,7 @@
                         var tr = $('<tr/>');
                         tr.append("<td>" + item.Id + "</td>");
                         tr.append("<td>" + item.Nome + "</td>");
-                        tr.append("<td>" + item.Cargo + "</td>");
+                        tr.append("<td>" + item.Cargo + item.Id + "</td>");
                         tr.append("<td>" + item.Email + "</td>");
                         $('.table-result').append(tr);
                     });
