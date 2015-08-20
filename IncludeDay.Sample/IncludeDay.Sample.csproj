@@ -99,6 +99,7 @@
     <Content Include="css\font-awesome-4.4.0\scss\_rotated-flipped.scss" />
     <Content Include="css\font-awesome-4.4.0\scss\_stacked.scss" />
     <Content Include="css\font-awesome-4.4.0\scss\_variables.scss" />
+    <None Include="Properties\PublishProfiles\Debug.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
