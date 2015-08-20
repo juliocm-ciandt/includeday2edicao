@@ -67,7 +67,7 @@ namespace IncludeDay.Services.Controllers
                        };
 
             //Proposital para causar um lentidão no retorno do serviço para os testers
-            System.Threading.Thread.Sleep(10000);
+            //System.Threading.Thread.Sleep(10000);
 
             return list.ToList();
         }
