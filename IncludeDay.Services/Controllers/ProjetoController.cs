@@ -91,7 +91,7 @@ namespace IncludeDay.Services.Controllers
             foreach(var projeto in list)
             {
                 retorno.AppendFormat("<label class=\"map-area map-area-projeto-{0} center-block\">", projeto.Id);
-                retorno.AppendFormat("  <input name=\"projeto\" value=\"{0}\" type=\"radio\" alt=\"{1}\" />", projeto.Id, projeto.Nome);
+                retorno.AppendFormat("  <input name=\"projeto\" value=\"{0}\" type=\"radio\" alt=\"{1}\" class=\"checkradios custom-style\" />", projeto.Id, projeto.Nome);
                 retorno.AppendFormat("  <span class=\"text-center\">{0}</span>", projeto.Nome);
                 retorno.Append("</label>");
                 retorno.AppendLine();                  

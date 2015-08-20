@@ -16,12 +16,12 @@ a:hover {
 }
 
 :required {
-  border-color: #88a;
-  -webkit-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
-  -moz-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
-  -o-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
-  -ms-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
-  box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+    border-color: #88a;
+    -webkit-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+    -moz-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+    -o-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+    -ms-box-shadow: 0 0 5px rgba(0, 0, 255, .5);
+    box-shadow: 0 0 5px rgba(0, 0, 255, .5);
 }
 
 
@@ -257,7 +257,10 @@ h1, p.lead {
     }
 
     .map-area > input {
-        display: none;
+        position: relative;
+        float: left;
+        top: 100px;
+        right: 10px;
     }
 
         .map-area > input:checked + span {
@@ -286,15 +289,28 @@ h1, p.lead {
 }
 
 .map-area-projeto-4, .map-area-projeto-9 {
-    top: 380px;
+    top: 358px;
     left: 0;
     width: 355px;
-    height: 140px;
+    height: 160px;
 }
 
 .map-area-projeto-5, .map-area-projeto-10 {
-    top: 380px;
+    top: 358px;
     left: 418px;
     width: 651px;
-    height: 140px;
+    height: 160px;
+}
+
+.custom-style {
+    position: relative;
+    float: left;
+    top: 100px;
+    left: 10px;
+    font-size: 25px;
+    color: #fff;
+    border: 2px solid #fff;
+    -webkitbox-shadow: inset 0px 0.1em 0.1em rgba(0,0,0,0.3);
+    -moz-box-shadow: inset 0px 0.1em 0.1em rgba(0,0,0,0.3);
+    box-shadow: inset 0px 0.1em 0.1em rgba(0,0,0,0.3);
 }
